@@ -8,7 +8,7 @@ O nome tem origem no latim *celeritas* (rapidez, prontidão) e remete diretament
 
 ---
 
-## O Problema
+## O Problema:
 
 O Judiciário brasileiro enfrenta um estoque de milhões de processos acumulados. Atualmente, servidores precisam ler manualmente centenas de petições diariamente para decidir o destino de cada processo. Este fluxo manual gera:
 
@@ -18,7 +18,7 @@ O Judiciário brasileiro enfrenta um estoque de milhões de processos acumulados
 
 ---
 
-## A Solução
+## A solução:
 
 A inovação do Celeris está na categorização prévia das demandas. Ao receber os processos já identificados e separados por assunto, o trabalho do servidor é drasticamente acelerado.
 
@@ -28,7 +28,7 @@ A inovação do Celeris está na categorização prévia das demandas. Ao recebe
 
 ---
 
-## Especificações Técnicas
+## Especificações Técnicas:
 
 A interface foi projetada para maximizar a eficiência humana no ambiente das Varas Cíveis e Juizados Especiais.
 
@@ -38,7 +38,7 @@ A interface foi projetada para maximizar a eficiência humana no ambiente das Va
 
 ---
 
-## Proposta de Valor
+## Proposta de Valor:
 
 * **Mais tempo para decidir, menos tempo para triar:** Redução drástica do gargalo inicial de entrada de processos.
 * **Inteligência Pronta para a Decisão:** O servidor não perde tempo descobrindo o assunto, ele já inicia o trabalho na fase de resolução.
@@ -46,7 +46,7 @@ A interface foi projetada para maximizar a eficiência humana no ambiente das Va
 
 ---
 
-## Público-Alvo
+## Público-Alvo:
 
 * **Público Direto:** Servidores públicos, assessores jurídicos, estagiários e magistrados.
 * **Foco:** Tribunais de Justiça Estaduais com alto volume de processos repetitivos.
