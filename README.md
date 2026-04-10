@@ -26,15 +26,6 @@ A inovação do Celeris está na categorização prévia das demandas. Ao recebe
 * **Filtro de Repetitivos:** Identificação de processos idênticos (litispendência) e demandas em massa.
 * **Automação de Fluxo:** Sugestão de modelos de despachos padronizados para acelerar a tramitação inicial.
 
----
-
-## Especificações Técnicas:
-
-A interface foi projetada para maximizar a eficiência humana no ambiente das Varas Cíveis e Juizados Especiais.
-
-* **Frontend:** Desenvolvido com HTML5, CSS3 e JavaScript puro.
-* **Layout:** Interface dividida entre um visualizador de petições e uma barra lateral de assistência de IA.
-* **Funcionalidades de UI:** Alternância de visibilidade da barra lateral para foco na leitura e medidores de confiança da análise da IA.
 
 ---
 
