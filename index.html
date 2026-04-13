@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"> <!-- permite acentos e caracteres especiais -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- faz o site se adaptar a diferentes telas (responsivo) -->
   <title>Celeris - Triagem Inteligente</title>
-  <link rel="stylesheet" href="style.css">
-    <!-- Ícones Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- "baixo" a biblioteca de ícones -->
 </head>
 <BODY>
   XXXXXXXXXXXXXXXXXX
 </BODY>
+
+<!-- container principal que segura a estrutura -->
 <div class="container">
-<!-- Barra Lateral Esquerda -->
-<aside class="sidebar">
-<div class="logo-container">
-<h1 class="logo-text">CELERIS</h1>
-<p class="logo-sub">Redefinindo o Tempo</p>
-</div>
+
+<!-- ================= SIDEBAR (LADO ESQUERDO) ================= -->
+  
+  <aside class="sidebar"> <!-- sidebar na lateral esquerda pq foi "chamada" primeiro -->
+    <div class="logo-container"> <!-- area de "definir" a logo -->
+      <h1 class="logo-text">CELERIS</h1>
+      <p class="logo-sub">Redefinindo o Tempo</p>
+    </div>
+    
+    <nav class="nav-menu"> <!-- menu de navegação -->
+
+                <a href="#" class="nav-item active"> <!-- "#" pq o item não tem destino ainda -->
+                    <i class="fas fa-filter"></i> Triagem Pendente  <!-- "i" é o ícone, "fas fa" é o tipo do icone --> 
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-layer-group"></i> Demandas Repetitivas
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fas fa-check-double"></i> Processos Analisados
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-line"></i> Relatórios de Celeridade
+                </a>
+            </nav>
+    
+    <div class="sidebar-footer"> <!-- parte inferior da sidebar -->
+      <a href="#" class="nav-item">
+        <i class="fas fa-cog"></i> Configurações <!-- botão “Configurações” no final da barra lateral -->
+          </a>
+      </div>
+  </aside>
+  
+  <!-- ================= ÁREA PRINCIPAL ================= -->
+
+    
+
+    
