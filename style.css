@@ -1,1 +1,11 @@
 "hello world"
+/* ================= VARIÁVEIS DE CORES ================= */
+:root {
+    /* Variáveis facilitam reaproveitar cores */
+    --celeris-blue: #004080;
+    --sidebar-bg: #003366;
+    --bg-light: #f8fafc;
+    --text-main: #333;
+    --border-color: #e2e8f0;
+    --white: #ffffff;
+}
