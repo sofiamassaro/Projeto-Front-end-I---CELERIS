@@ -66,7 +66,7 @@
                 </div>
             </header>
 
-<!-- ================= "modelo minuta" ================= -->
+<!-- ================= ÁREA DO DOCUMENTO (conteudo petição) ================= -->
 
             <section class="document-section"> <!-- área onde aparece o processo -->
 
@@ -94,6 +94,61 @@
                 </div>
             </section>
         </main>
+
+<!-- ================= PAINEL DE IA (DIREITA) ================= -->
+        <aside class="ai-panel"> <!--aside coloca como barra lateral-->
+
+            <!-- Card 1: Classificação -->
+            <div class="ai-card">
+                <div class="card-header">
+                    <i class="fas fa-robot"></i>
+                    <h3>Classificação Automática</h3>
+                </div>
+
+                <p>A IA identificou o assunto com <strong>98% de precisão</strong>:</p> <!--strong deixa em negrito-->
+
+                <div class="progress-bar"> <!--barra de progresso para mostrar a precisão da classificação -->
+                    <div class="progress-fill"></div> <!-- parte da barra preenchida -->
+                </div>
+
+                <div class="tag-group"> <!-- cria "etiquetas" pequenas-->
+                    <span class="tag">Direito Bancário</span>
+                    <span class="tag">Revisional de Juros</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Repetitivos -->
+            <div class="ai-card"> <!--caixa branca com sombra-->
+                <div class="card-header"> <!--cabeçalho do card-->
+                    <i class="fas fa-copy"></i> <!-- ícone do card -->
+                    <h3>Filtro de Repetitivos</h3> <!--título do card-->
+                </div>
+
+                <p>Foram encontrados <strong>12 processos idênticos</strong></p>
+                <a href="#" class="card-link">Verificar Litispendência</a> <!-- link para verificar litispendência, no momento vazio -->
+            </div>
+
+            <!-- Card 3: Sugestões -->
+            <div class="ai-card"> <!--caixa branca com sombra-->
+                <div class="card-header"> <!--cabeçalho do card-->
+                    <i class="fas fa-pen-nib"></i> <!-- ícone do card -->
+                    <h3>Sugestão de Despacho</h3> <!--título do card-->
+                </div>
+
+                <p>Selecione uma minuta:</p>
+
+                <div class="button-group"> <!-- grupo de botões para as sugestões de despacho --> <!--organiza em colunas-->
+                    <button class="btn btn-blue">Citação + Audiência</button> <!-- "btn" é o estilo base, "btn-blue" é a variação de cor -->
+                    <button class="btn btn-grey">Emendar Inicial</button>
+                    <button class="btn btn-red">Indeferir Justiça Gratuita</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
+
+
 
 
     
