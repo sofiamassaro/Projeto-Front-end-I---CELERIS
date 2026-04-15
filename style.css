@@ -9,3 +9,9 @@
     --border-color: #e2e8f0;
     --white: #ffffff;
 }
+/* Reset básico (remove espaçamentos padrão do navegador) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
