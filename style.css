@@ -23,12 +23,30 @@ body {
     overflow: hidden; /* impede scroll geral */
 }
 /* container principal com FLEX */
-.container {
-    display: flex; /* ativa o FLEXBOX → organiza os elementos lado a lado */
+.container { 
+    display: flex; /* display: flex sozinho - lado a lado */
     height: 100vh; /* ocupa a tela toda */
 }
 /* ================= SIDEBAR ================= */
 .sidebar {
-    width: 280px;
-    background-color: var(--sidebar-bg);
-    color: var(--white);
+    width: 280px; /* define largura fixa → ela sempre terá 280px */
+    background-color: var(--sidebar-bg); /* cor de fundo (usa a variável que você criou) */
+    color: var(--white); /* cor padrão dos textos dentro da sidebar */
+    
+    display: flex; /* ativa flexbox dentro da sidebar */
+    flex-direction: column; /* flex-direction: column - muda pra empilhar */
+    padding: 25px 0; /* espaçamento interno: 25px em cima e embaixo 0 nas laterais */
+}
+/* logo */
+.logo-container { 
+    padding: 0 25px; /* espaço nas laterais (esquerda e direita) */
+    margin-bottom: 40px; /* espaço abaixo do logo (separa do menu) */
+}
+.logo-text {
+    font-size: 26px; /* tamanho grande da fonte */
+    font-weight: bold; /* deixa o texto em negrito */
+}
+.logo-sub {
+    font-size: 12px; /* texto pequeno (subtítulo) */
+    opacity: 0.7; /* deixa meio “apagado” (transparente) */
+}
