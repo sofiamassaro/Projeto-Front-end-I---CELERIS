@@ -27,3 +27,8 @@ body {
     display: flex;
     height: 100vh; /* ocupa a tela toda */
 }
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    color: var(--white);
