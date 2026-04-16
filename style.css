@@ -15,3 +15,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Corpo da página */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    overflow: hidden; /* impede scroll geral */
+}
