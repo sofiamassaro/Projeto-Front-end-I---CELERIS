@@ -146,4 +146,84 @@ body {
     color: #999; /* cinza claro */
     font-style: italic; /* texto em itálico */
 }
+/* ================= PAINEL DE IA ================= */
+.ai-panel {
+    width: 350px; /* largura fixa */
+    padding: 25px; /* espaço interno */
+    background: var(--bg-light); /* cor de fundo */
+    overflow-y: auto; /* scroll vertical */
+}
+/* card */
+.ai-card {
+    background: white; 
+    padding: 20px; 
+    margin-bottom: 25px; 
 
+    border-radius: 12px; /* cantos arredondados */
+    border: 1px solid var(--border-color); /* borda leve */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* sombra suave */
+}
+/* cabeçalho do card */
+.card-header {
+    display: flex; 
+    align-items: center; 
+    gap: 10px; /* espaço entre ícone e texto */
+    color: var(--celeris-blue); /* cor do texto */
+}
+/* barra de progresso */
+.progress-bar {
+    height: 8px; 
+    background: #eee; /* fundo da barra */
+    border-radius: 4px; 
+    margin: 15px 0; /* espaço acima e abaixo */
+}
+/* parte preenchida */
+.progress-fill {
+    width: 98%; /* quanto está preenchido */
+    height: 100%; 
+    background: #28a745; /* cor verde indicando progresso */
+}
+/* tags */
+.tag-group {
+    display: flex; 
+    gap: 8px; /* espaço entre as tags */
+}
+.tag {
+    border: 1px solid var(--celeris-blue); /* borda azul */
+    padding: 4px 12px; 
+    border-radius: 20px; /* formato arredondado (tipo cápsula) */
+
+    font-size: 12px; /* texto pequeno */
+}
+/* link */
+.card-link {
+    color: #007bff; /* azul padrão de link */
+    text-decoration: none; /* remove sublinhado */
+}
+/* botões */
+.button-group {
+    display: flex; 
+    flex-direction: column; /* empilha os botões */
+    gap: 10px; /* espaço entre eles */
+}
+/* estilo base */
+.btn {
+    padding: 12px; 
+    border: none; 
+    border-radius: 8px; 
+    
+    cursor: pointer; /* cursor vira mãozinha */
+    font-weight: 600; /* texto mais forte */
+    transition: 0.2s; /* animação suave */
+}
+/* cores dos botões */
+.btn-blue { background: var(--sidebar-bg); color: white; }
+.btn-grey { background: #64748b; color: white; }
+.btn-red { background: #ef4444; color: white; }
+/* cada classe define uma cor diferente */
+
+/* hover */
+.btn:hover {
+    opacity: 0.9; /* leve transparência */
+    transform: translateY(-1px); /* sobe levemente (efeito de clique) */
+}
