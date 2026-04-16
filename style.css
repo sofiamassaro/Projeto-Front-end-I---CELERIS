@@ -1,30 +1,30 @@
-"hello world"
 /* ================= VARIÁVEIS DE CORES ================= */
-:root {
-    /* Variáveis facilitam reaproveitar cores */
-    --celeris-blue: #004080;
+:root { /* define que as variáveis vão valer para o site inteiro */
+    /* criação de variáveis para salvar cores, facilitando reutilizar ao longo do código */
+    --celeris-blue: #004080; /* #xxxxxx é um código hexadecimal que representa uma cor */
     --sidebar-bg: #003366;
     --bg-light: #f8fafc;
     --text-main: #333;
     --border-color: #e2e8f0;
     --white: #ffffff;
 }
-/* Reset básico (remove espaçamentos padrão do navegador) */
+
+/* reset básico (remove espaçamentos padrão do navegador) */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* Corpo da página */
+/* corpo da página */
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* define a fonte do site (tenta na ordem: Segoe → Roboto → Helvetica → Arial → padrão) */
+    background-color: var(--bg-light); /* define a cor de fundo usando a variável --bg-light */
+    color: var(--text-main); /* define a cor padrão dos textos usando variável */
     overflow: hidden; /* impede scroll geral */
 }
-/* Container principal com FLEX */
+/* container principal com FLEX */
 .container {
-    display: flex;
+    display: flex; /* ativa o FLEXBOX → organiza os elementos lado a lado */
     height: 100vh; /* ocupa a tela toda */
 }
 /* ================= SIDEBAR ================= */
