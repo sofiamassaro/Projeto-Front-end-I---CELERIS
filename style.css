@@ -111,3 +111,39 @@ body {
     align-items: center; 
     justify-content: center; /* centraliza o conteúdo dentro do círculo */
 }
+
+/* ================= DOCUMENTO ================= */
+.document-section {
+    flex-grow: 1; /* ocupa o espaço disponível */
+    overflow-y: auto; /* cria scroll vertical só nessa área */
+    padding: 40px; /* espaçamento interno */
+    display: flex; 
+    justify-content: center; /* centraliza o conteúdo horizontalmente */
+}
+/* papel */
+.document-paper {
+    background: white; /* fundo branco */
+    max-width: 850px; /* largura máxima (não deixa esticar demais) */
+    padding: 60px; /* espaço interno */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* sombra leve (parece uma folha) */
+}
+/* título */
+.doc-title {
+    text-align: center; /* centraliza o texto */
+    margin-bottom: 40px; /* espaço abaixo */
+}
+/* metadados */
+.doc-meta {
+    margin-bottom: 30px; /* espaço abaixo */
+}
+/* texto */
+.doc-content {
+    line-height: 1.6; /* aumenta o espaço entre linhas (melhora leitura) */
+}
+/* texto fictício */
+.placeholder-text {
+    margin-top: 50px; /* espaço acima */
+    color: #999; /* cinza claro */
+    font-style: italic; /* texto em itálico */
+}
+
