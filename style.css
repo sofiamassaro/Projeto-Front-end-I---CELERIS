@@ -50,3 +50,26 @@ body {
     font-size: 12px; /* texto pequeno (subtítulo) */
     opacity: 0.7; /* deixa meio “apagado” (transparente) */
 }
+/* menu */
+.nav-item {
+    display: flex; /* coloca os elementos internos (ícone + texto) lado a lado */
+    align-items: center; /* alinha verticalmente no meio */
+    padding: 15px 25px; /* espaço interno (cima/baixo = 15px | lados = 25px) */
+    color: rgba(255, 255, 255, 0.8); /* branco com transparência (texto mais suave) */
+    text-decoration: none; /* remove sublinhado (caso seja link <a>) */
+    transition: 0.2s; /* animação suave para mudanças (ex: hover) */
+}
+/* ícone */
+.nav-item i {
+    margin-right: 15px; /* espaço entre o ícone e o texto */
+}
+/* hover (serve para quando o usuario passa o mouse ter algum tipo de efeito) e item ativo */ 
+.nav-item:hover,
+.nav-item.active {
+    background-color: rgba(255, 255, 255, 0.1); /* aparece um fundo leve ao passar o mouse */
+    color: var(--white); /* texto fica branco forte */
+}
+/* rodapé da sidebar */
+.sidebar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* linha fina em cima (separação visual) */
+}
