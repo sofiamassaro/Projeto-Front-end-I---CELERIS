@@ -73,3 +73,41 @@ body {
 .sidebar-footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* linha fina em cima (separação visual) */
 }
+
+/* ================= CONTEÚDO CENTRAL ================= */
+.main-content {
+    flex-grow: 1; /* ocupa todo o espaço restante ao lado da sidebar */
+    display: flex; /* ativa o flexbox */
+    flex-direction: column; /* organiza os elementos em coluna (um embaixo do outro) */
+    background: white; /* fundo branco */
+    border-right: 1px solid var(--border-color); /* linha à direita separando do painel */
+}
+
+/* cabeçalho */
+.top-header {
+    height: 65px; /* altura fixa do cabeçalho */
+    display: flex; /* ativa flex */
+    justify-content: space-between; /* joga um elemento para esquerda e outro para direita */
+    align-items: center; /* alinha verticalmente no meio */
+    padding: 0 30px; /* espaço nas laterais */
+    border-bottom: 1px solid var(--border-color); /* linha embaixo */
+}
+
+/* perfil */
+.user-profile {
+    display: flex; /* organiza os elementos lado a lado */
+    align-items: center; /* alinha verticalmente */
+    gap: 15px; /* espaço entre os elementos */
+}
+
+/* avatar */
+.avatar {
+    width: 35px; 
+    height: 35px; /* tamanho do círculo */
+    background: #ddd; /* cor de fundo (cinza claro) */
+    border-radius: 50%; /* transforma em círculo */
+
+    display: flex; 
+    align-items: center; 
+    justify-content: center; /* centraliza o conteúdo dentro do círculo */
+}
