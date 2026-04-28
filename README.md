@@ -1,5 +1,7 @@
 # CELERIS
 
+Link para acessar o HTML: **https://sofiamassaro.github.io/Projeto-Front-CELERIS/**
+
 ## Redefinindo o Tempo da Justiça através da Triagem Automatizada
 
 O **Celeris** é um ecossistema de triagem inteligente desenvolvido para o Judiciário brasileiro. O projeto atua na porta de entrada dos Tribunais, utilizando tecnologia para analisar e classificar automaticamente petições iniciais antes mesmo da leitura humana.
