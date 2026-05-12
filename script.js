@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // as duas "telas" da área central
     const viewFila       = document.getElementById("view-fila");
     const viewDocumento  = document.getElementById("view-documento");
+    const viewGenerica   = document.getElementById("view-generica");
 
     // os dois estados do painel de IA
     const aiPanelFila    = document.getElementById("ai-panel-fila");
@@ -157,13 +158,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ================= FUNÇÃO: VOLTAR PARA A FILA =================
     function voltarParaFila() {
-        // mostra a fila e esconde o documento
-        viewFila.style.display      = "flex";
-        viewDocumento.style.display = "none";
-
-        // mostra o painel da fila e esconde o painel do documento
-        aiPanelFila.style.display = "block";
-        aiPanelDoc.style.display  = "none";
+        viewFila.style.display        = "flex";
+        viewDocumento.style.display   = "none";
+        viewGenerica.style.display    = "none";
+        aiPanelFila.style.display     = "block";
+        aiPanelDoc.style.display      = "none";
     }
 
     // ================= EVENTOS: CARDS DA FILA =================
@@ -178,7 +177,43 @@ document.addEventListener("DOMContentLoaded", function () {
     // ================= EVENTO: BOTÃO VOLTAR =================
     btnVoltar.addEventListener("click", voltarParaFila);
 
-    // ================= EVENTOS: MENU LATERAL =================
+    // ================= FUNÇÃO: MOSTRAR SEÇÃO GENÉRICA =================
+    // exibe a tela de "em desenvolvimento" para seções ainda não implementadas
+    function mostrarSecaoGenerica(secao) {
+
+        // mapeia cada seção para seu título e ícone correspondente
+        const secoes = {
+            "repetitivas":   { titulo: "Demandas Repetitivas",      icone: "fas fa-layer-group" },
+            "analisados":    { titulo: "Processos Analisados",       icone: "fas fa-check-double" },
+            "relatorios":    { titulo: "Relatórios de Celeridade",   icone: "fas fa-chart-line" },
+            "configuracoes": { titulo: "Configurações",              icone: "fas fa-cog" }
+        };
+
+        const dados = secoes[secao] || { titulo: "Seção", icone: "fas fa-folder" };
+
+        // atualiza o título e o ícone da tela genérica
+        document.getElementById("generica-title").textContent = dados.titulo;
+        document.getElementById("generica-icon").innerHTML = `<i class="${dados.icone}"></i>`;
+
+        // esconde as outras views e mostra a genérica
+        viewFila.style.display        = "none";
+        viewDocumento.style.display   = "none";
+        viewGenerica.style.display    = "flex";
+
+        // esconde os dois painéis de IA (a tela genérica não tem painel)
+        aiPanelFila.style.display = "none";
+        aiPanelDoc.style.display  = "none";
+    }
+
+    // ================= EVENTO: BOTÃO VOLTAR DA TELA GENÉRICA =================
+    document.getElementById("btn-voltar-generica").addEventListener("click", function () {
+        // volta para a triagem: ativa o item do menu e exibe a fila
+        navItems.forEach(link => link.classList.remove("active"));
+        document.querySelector('[data-section="triagem"]').classList.add("active");
+        voltarParaFila();
+    });
+
+
     // controla qual item da sidebar está ativo e troca o conteúdo central
     navItems.forEach(function (item) {
         item.addEventListener("click", function (event) {
@@ -194,13 +229,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (secao === "triagem") {
                 voltarParaFila();
             } else {
-                // para as outras seções, esconde a fila e mostra uma mensagem genérica
-                // (aqui você pode futuramente adicionar conteúdo real para cada seção)
-                viewFila.style.display     = "none";
-                viewDocumento.style.display = "none";
-                aiPanelFila.style.display  = "none";
-                aiPanelDoc.style.display   = "none";
-                // TODO: adicionar views específicas para cada seção
+                // para as outras seções, mostra a tela genérica com nome e ícone corretos
+                mostrarSecaoGenerica(secao);
             }
         });
     });

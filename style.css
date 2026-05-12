@@ -464,7 +464,41 @@ body {
     transform: translateY(-1px);
 }
 
-/* lista de assuntos no painel da fila */
+
+/* ================= TELA GENÉRICA (seções em desenvolvimento) ================= */
+/* centraliza o conteúdo vertical e horizontalmente */
+.generica-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    padding: 60px 40px;
+    color: var(--text-muted);
+}
+
+/* ícone grande centralizado */
+.generica-icon {
+    font-size: 48px;
+    color: var(--border-color);
+    margin-bottom: 20px;
+}
+
+.generica-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.generica-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 360px;
+    line-height: 1.6;
+}
+
 .assunto-list {
     list-style: none;
     margin-top: 8px;
