@@ -1,81 +1,70 @@
-const pendingProcesses = [
-    {
-        id: "0001",
-        title: "Ação Revisional de Contrato",
-        parties: "João da Silva vs Banco do Brasil",
-        subject: "Revisão de juros abusivos",
-        status: "Pendente",
-        details: "Solicitação de revisão de cláusulas de contrato de financiamento bancário com juros supostamente abusivos."
-    },
-    {
-        id: "0002",
-        title: "Cobrança Indevida",
-        parties: "Maria Pereira vs Santander",
-        subject: "Contestação de débito",
-        status: "Pendente",
-        details: "Análise de cobrança de tarifas e encargos não previstos em contrato."
-    },
-    {
-        id: "0003",
-        title: "Ação de Consignado",
-        parties: "Carlos Alberto vs Itaú",
-        subject: "Nulidade de contrato",
-        status: "Pendente",
-        details: "Pedido de revisão de contrato consignado com valores questionados."
-    }
-];
+// ================= SIDEBAR INTERATIVA =================
 
-function renderPendingList() {
-    const listContainer = document.querySelector(".pending-list");
-    listContainer.innerHTML = "";
+// espera a página carregar antes de executar o JavaScript
+document.addEventListener("DOMContentLoaded", function () { 
 
-    pendingProcesses.forEach((process, index) => {
-        const item = document.createElement("li");
-        item.className = "pending-item";
-        item.textContent = `${process.title} — ${process.subject}`;
-        item.dataset.processId = process.id;
+    // seleciona todos os itens do menu lateral
+    const navItems = document.querySelectorAll(".nav-item");
 
-        item.addEventListener("click", () => {
-            document.querySelectorAll(".pending-item").forEach(el => el.classList.remove("active"));
-            item.classList.add("active");
-            showProcessDetails(process.id);
-        });
-
-        if (index === 0) {
-            item.classList.add("active");
+    // dados para cada seção (simulando conteúdo dinâmico)
+    const sectionData = {
+        "Triagem Pendente": {
+            title: "EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO...",
+            content: "O autor celebrou contrato de financiamento... [Conteúdo da Triagem Pendente]"
+        },
+        "Demandas Repetitivas": {
+            title: "DEMANDAS REPETITIVAS IDENTIFICADAS",
+            content: "Foram encontradas 12 demandas similares... [Detalhes das repetitivas]"
+        },
+        "Processos Analisados": {
+            title: "PROCESSOS JÁ ANALISADOS",
+            content: "Lista de processos concluídos... [Histórico de análises]"
+        },
+        "Relatórios de Celeridade": {
+            title: "RELATÓRIOS DE CELERIDADE",
+            content: "Estatísticas de tempo de resposta... [Dados de performance]"
+        },
+        "Configurações": {
+            title: "CONFIGURAÇÕES DO SISTEMA",
+            content: "Opções de personalização... [Ajustes disponíveis]"
         }
+    };
 
-        listContainer.appendChild(item);
-    });
-}
+    // passa por cada item do menu
+    navItems.forEach(function (item) {
 
-function showProcessDetails(processId) {
-    const process = pendingProcesses.find(item => item.id === processId);
-    if (!process) return;
+        // adiciona evento de clique em cada item
+        item.addEventListener("click", function (event) {
 
-    document.querySelector(".doc-title").textContent = process.title;
-    document.querySelector(".doc-meta").innerHTML = `
-        <p><strong>Partes:</strong> ${process.parties}</p>
-        <p><strong>Assunto:</strong> ${process.subject}</p>
-        <p><strong>Status:</strong> ${process.status}</p>
-    `;
-    document.querySelector(".doc-content").innerHTML = `
-        <p>${process.details}</p>
-        <p class="placeholder-text">Selecione outro processo pendente para ver novos detalhes.</p>
-    `;
-}
-
-function initPlatform() {
-    renderPendingList();
-    showProcessDetails(pendingProcesses[0].id);
-
-    document.querySelectorAll(".nav-item").forEach(item => {
-        item.addEventListener("click", event => {
+            // impede o link de recarregar ou sair da página
             event.preventDefault();
-            document.querySelectorAll(".nav-item").forEach(link => link.classList.remove("active"));
+
+            // remove a classe "active" de todos os itens
+            navItems.forEach(function (link) {
+                link.classList.remove("active");
+            });
+
+            // adiciona a classe "active" somente no item clicado
             item.classList.add("active");
+
+            // obtém o texto do item clicado (sem o ícone)
+            const itemText = item.textContent.trim();
+
+            // verifica se há dados para essa seção
+            if (sectionData[itemText]) {
+                // atualiza o título do documento
+                document.querySelector(".doc-title").textContent = sectionData[itemText].title;
+                
+                // atualiza o conteúdo do documento
+                document.querySelector(".doc-content p:first-child").textContent = sectionData[itemText].content;
+                
+                // opcional: animação de fade para destacar a mudança
+                const docPaper = document.querySelector(".document-paper");
+                docPaper.style.opacity = "0.5";
+                setTimeout(() => {
+                    docPaper.style.opacity = "1";
+                }, 200);
+            }
         });
     });
-}
-
-document.addEventListener("DOMContentLoaded", initPlatform);
+});

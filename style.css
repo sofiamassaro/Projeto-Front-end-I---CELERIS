@@ -195,34 +195,6 @@ body {
 
     font-size: 12px; /* texto pequeno */
 }
-.pending-list {
-    list-style: none;
-    margin: 15px 0 0;
-    padding: 0;
-    display: grid;
-    gap: 10px;
-}
-.pending-item {
-    background: #f4f7fb;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.pending-item:hover,
-.pending-item.active {
-    border-color: var(--celeris-blue);
-    background: #e8f1ff;
-}
-.pending-item strong {
-    display: block;
-    margin-bottom: 4px;
-    color: var(--celeris-blue);
-}
-.pending-item small {
-    color: #6b7280;
-}
 /* link */
 .card-link {
     color: #007bff; /* azul padrão de link */
