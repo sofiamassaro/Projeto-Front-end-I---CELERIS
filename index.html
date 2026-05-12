@@ -1,153 +1,333 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8"> <!-- permite acentos e caracteres especiais -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- faz o site se adaptar a diferentes telas (responsivo) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Celeris - Triagem Inteligente</title>
-  <link rel="stylesheet" href="style.css"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- "baixo" a biblioteca de ícones -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container"> <!-- container principal que segura a estrutura -->
+  <div class="container">
 
-<!-- ================= SIDEBAR (LADO ESQUERDO) ================= -->
-  
-  <aside class="sidebar"> <!-- sidebar na lateral esquerda pq foi "chamada" primeiro -->
-    <div class="logo-container"> <!-- area de "definir" a logo -->
-      <h1 class="logo-text">CELERIS</h1>
-      <p class="logo-sub">Redefinindo o Tempo</p>
-    </div>
-    
-    <nav class="nav-menu"> <!-- menu de navegação -->
-
-                <a href="#" class="nav-item active"> <!-- "#" pq o item não tem destino ainda -->
-                    <i class="fas fa-filter"></i> Triagem Pendente  <!-- "i" é o ícone, "fas fa" é o tipo do icone --> 
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-layer-group"></i> Demandas Repetitivas
-                </a>
-
-                <a href="#" class="nav-item">
-                    <i class="fas fa-check-double"></i> Processos Analisados
-                </a>
-
-                <a href="#" class="nav-item">
-                    <i class="fas fa-chart-line"></i> Relatórios de Celeridade
-                </a>
-            </nav>
-    
-    <div class="sidebar-footer"> <!-- parte inferior da sidebar -->
-      <a href="#" class="nav-item">
-        <i class="fas fa-cog"></i> Configurações <!-- botão “Configurações” no final da barra lateral -->
-          </a>
+    <!-- ================= SIDEBAR (LADO ESQUERDO) ================= -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <h1 class="logo-text">CELERIS</h1>
+        <p class="logo-sub">Redefinindo o Tempo</p>
       </div>
-  </aside>
-  
-  <!-- ================= ÁREA PRINCIPAL ================= -->
 
- <main class="main-content"> <!-- conteúdo central -->
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active" data-section="triagem">
+          <i class="fas fa-filter"></i>
+          <span>Triagem Pendente</span>
+          <!-- badge com contagem de processos pendentes -->
+          <span class="nav-badge" id="badge-triagem">7</span>
+        </a>
+        <a href="#" class="nav-item" data-section="repetitivas">
+          <i class="fas fa-layer-group"></i>
+          <span>Demandas Repetitivas</span>
+        </a>
+        <a href="#" class="nav-item" data-section="analisados">
+          <i class="fas fa-check-double"></i>
+          <span>Processos Analisados</span>
+        </a>
+        <a href="#" class="nav-item" data-section="relatorios">
+          <i class="fas fa-chart-line"></i>
+          <span>Relatórios de Celeridade</span>
+        </a>
+      </nav>
 
-            <header class="top-header"><!-- barra superior -->
+      <div class="sidebar-footer">
+        <a href="#" class="nav-item" data-section="configuracoes">
+          <i class="fas fa-cog"></i>
+          <span>Configurações</span>
+        </a>
+      </div>
+    </aside>
 
-                <div class="header-info">
-                    <span>
-                        Fila de Entrada:
-                        <strong>Vara Bancária - Comarca de Florianópolis</strong>
-                    </span>
-                </div>
+    <!-- ================= ÁREA PRINCIPAL ================= -->
+    <main class="main-content">
 
-                <div class="user-profile"> <!-- informações do usuário -->
-                    <span>Servidor: <strong>Sofi Massaro</strong></span>
-                    <div class="avatar">SM</div> <!-- avatar com iniciais -->
-                </div>
-            </header>
+      <header class="top-header">
+        <div class="header-info">
+          <span>Fila de Entrada: <strong>Vara Bancária - Comarca de Florianópolis</strong></span>
+        </div>
+        <div class="user-profile">
+          <span>Servidor: <strong>Sofi Massaro</strong></span>
+          <div class="avatar">SM</div>
+        </div>
+      </header>
 
-<!-- ================= ÁREA DO DOCUMENTO (conteudo petição) ================= -->
+      <!-- ================= FILA DE TRIAGEM ================= -->
+      <!-- esta seção aparece quando o usuário está em "Triagem Pendente" sem nenhum processo aberto -->
+      <section class="document-section" id="view-fila">
 
-            <section class="document-section"> <!-- área onde aparece o processo -->
+        <div class="fila-container">
 
-                <div class="document-paper"> <!-- "folha" simulando papel -->
+          <!-- cabeçalho da fila com título e contador -->
+          <div class="fila-header">
+            <div>
+              <h2 class="fila-title">Fila de Triagem Pendente</h2>
+              <p class="fila-subtitle">Clique em um processo para abrir e analisar</p>
+            </div>
+            <span class="fila-count" id="fila-count">7 processos aguardando</span>
+          </div>
 
-                    <h2 class="doc-title"> <!-- título do documento -->
-                        EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO...
-                    </h2>
+          <!-- lista de processos — cada card é um processo pendente -->
+          <div class="process-list" id="process-list">
 
-                    <div class="doc-meta"> <!-- dados do processo -->
-                        <p><strong>REQUERENTE:</strong> João da Silva</p>
-                        <p><strong>REQUERIDO:</strong> Banco do Brasil S.A.</p>
-                        <p><strong>ASSUNTO:</strong> Ação Revisional...</p>
-                    </div>
-
-                    <div class="doc-content"> <!-- texto do documento -->
-                        <p>
-                            O autor celebrou contrato de financiamento...
-                        </p>
-
-                        <p class="placeholder-text">
-                            [Simulação do conteúdo da petição inicial...]
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-<!-- ================= PAINEL DE IA (DIREITA) ================= -->
-        <aside class="ai-panel"> <!--aside coloca como barra lateral-->
-
-            <!-- Card 1: Classificação -->
-            <div class="ai-card">
-                <div class="card-header">
-                    <i class="fas fa-robot"></i>
-                    <h3>Classificação Automática</h3>
-                </div>
-
-                <p>A IA identificou o assunto com <strong>98% de precisão</strong>:</p> <!--strong deixa em negrito-->
-
-                <div class="progress-bar"> <!--barra de progresso para mostrar a precisão da classificação -->
-                    <div class="progress-fill"></div> <!-- parte da barra preenchida -->
-                </div>
-
-                <div class="tag-group"> <!-- cria "etiquetas" pequenas-->
-                    <span class="tag">Direito Bancário</span>
-                    <span class="tag">Revisional de Juros</span>
-                </div>
+            <!-- Processo 1 -->
+            <div class="process-card" data-id="0">
+              <div class="process-card-top">
+                <span class="process-num">5003421-12.2024.8.24.0023</span>
+                <span class="status-badge urgente">Urgente</span>
+              </div>
+              <div class="process-card-title">João da Silva vs. Banco do Brasil S.A.</div>
+              <div class="process-card-sub">Ação Revisional de Juros — Financiamento de Veículo</div>
+              <div class="process-card-meta">
+                <span class="process-tag">Direito Bancário</span>
+                <span class="process-meta-info"><i class="fas fa-calendar-alt"></i> Entrada: 09/05/2025</span>
+                <span class="process-meta-info"><i class="fas fa-copy"></i> 12 repetitivos</span>
+              </div>
             </div>
 
-            <!-- Card 2: Repetitivos -->
-            <div class="ai-card"> <!--caixa branca com sombra-->
-                <div class="card-header"> <!--cabeçalho do card-->
-                    <i class="fas fa-copy"></i> <!-- ícone do card -->
-                    <h3>Filtro de Repetitivos</h3> <!--título do card-->
-                </div>
-
-                <p>Foram encontrados <strong>12 processos idênticos</strong></p>
-                <a href="#" class="card-link">Verificar Litispendência</a> <!-- link para verificar litispendência, no momento vazio -->
+            <!-- Processo 2 -->
+            <div class="process-card" data-id="1">
+              <div class="process-card-top">
+                <span class="process-num">5003987-44.2024.8.24.0023</span>
+                <span class="status-badge prioritario">Prioritário</span>
+              </div>
+              <div class="process-card-title">Maria Oliveira vs. Caixa Econômica Federal</div>
+              <div class="process-card-sub">Revisão de Contrato de Financiamento Imobiliário</div>
+              <div class="process-card-meta">
+                <span class="process-tag">Financiamento</span>
+                <span class="process-meta-info"><i class="fas fa-calendar-alt"></i> Entrada: 10/05/2025</span>
+                <span class="process-meta-info"><i class="fas fa-copy"></i> 4 repetitivos</span>
+              </div>
             </div>
 
-            <!-- Card 3: Sugestões -->
-            <div class="ai-card"> <!--caixa branca com sombra-->
-                <div class="card-header"> <!--cabeçalho do card-->
-                    <i class="fas fa-pen-nib"></i> <!-- ícone do card -->
-                    <h3>Sugestão de Despacho</h3> <!--título do card-->
-                </div>
-
-                <p>Selecione uma minuta:</p>
-
-                <div class="button-group"> <!-- grupo de botões para as sugestões de despacho --> <!--organiza em colunas-->
-                    <button class="btn btn-blue">Citação + Audiência</button> <!-- "btn" é o estilo base, "btn-blue" é a variação de cor -->
-                    <button class="btn btn-grey">Emendar Inicial</button>
-                    <button class="btn btn-red">Indeferir Justiça Gratuita</button>
-                </div>
+            <!-- Processo 3 -->
+            <div class="process-card" data-id="2">
+              <div class="process-card-top">
+                <span class="process-num">5004102-88.2024.8.24.0023</span>
+                <span class="status-badge normal">Normal</span>
+              </div>
+              <div class="process-card-title">Pedro Alves vs. Itaú Unibanco S.A.</div>
+              <div class="process-card-sub">Indenização por Dano Moral — Cobrança Indevida</div>
+              <div class="process-card-meta">
+                <span class="process-tag">Consumidor</span>
+                <span class="process-meta-info"><i class="fas fa-calendar-alt"></i> Entrada: 10/05/2025</span>
+                <span class="process-meta-info"><i class="fas fa-copy"></i> 0 repetitivos</span>
+              </div>
             </div>
-        </aside>
-    </div>
-    <script src="script.js"></script> <!-- link para o arquivo JavaScript -->
+
+            <!-- Processo 4 -->
+            <div class="process-card" data-id="3">
+              <div class="process-card-top">
+                <span class="process-num">5004388-21.2024.8.24.0023</span>
+                <span class="status-badge normal">Normal</span>
+              </div>
+              <div class="process-card-title">Ana Souza vs. Bradesco S.A.</div>
+              <div class="process-card-sub">Cobrança Indevida de Tarifas Bancárias</div>
+              <div class="process-card-meta">
+                <span class="process-tag">Direito Bancário</span>
+                <span class="process-meta-info"><i class="fas fa-calendar-alt"></i> Entrada: 11/05/2025</span>
+                <span class="process-meta-info"><i class="fas fa-copy"></i> 7 repetitivos</span>
+              </div>
+            </div>
+
+            <!-- Processo 5 -->
+            <div class="process-card" data-id="4">
+              <div class="process-card-top">
+                <span class="process-num">5004512-67.2024.8.24.0023</span>
+                <span class="status-badge urgente">Urgente</span>
+              </div>
+              <div class="process-card-title">Carlos Mendes vs. Santander Brasil S.A.</div>
+              <div class="process-card-sub">Negativação Indevida no SPC/Serasa</div>
+              <div class="process-card-meta">
+                <span class="process-tag">Consumidor</span>
+                <span class="process-meta-info"><i class="fas fa-calendar-alt"></i> Entrada: 11/05/2025</span>
+                <span class="process-meta-info"><i class="fas fa-copy"></i> 2 repetitivos</span>
+              </div>
+            </div>
+
+            <!-- Processo 6 -->
+            <div class="process-card" data-id="5">
+              <div class="process-card-top">
+                <span class="process-num">5004701-33.2024.8.24.0023</span>
+                <span class="status-badge normal">Normal</span>
+              </div>
+              <div class="process-card-title">Luciana Ferreira vs. Nubank S.A.</div>
+              <div class="process-card-sub">Revisão de Limite e Contestação de Cobranças</div>
+              <div class="process-card-meta">
+                <span class="process-tag">Crédito</span>
+                <span class="process-meta-info"><i class="fas fa-calendar-alt"></i> Entrada: 11/05/2025</span>
+                <span class="process-meta-info"><i class="fas fa-copy"></i> 1 repetitivo</span>
+              </div>
+            </div>
+
+            <!-- Processo 7 -->
+            <div class="process-card" data-id="6">
+              <div class="process-card-top">
+                <span class="process-num">5004899-14.2024.8.24.0023</span>
+                <span class="status-badge prioritario">Prioritário</span>
+              </div>
+              <div class="process-card-title">Roberto Lima vs. Banco Inter S.A.</div>
+              <div class="process-card-sub">Revisão de Contrato de Empréstimo Consignado</div>
+              <div class="process-card-meta">
+                <span class="process-tag">Consignado</span>
+                <span class="process-meta-info"><i class="fas fa-calendar-alt"></i> Entrada: 12/05/2025</span>
+                <span class="process-meta-info"><i class="fas fa-copy"></i> 3 repetitivos</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= DOCUMENTO ABERTO ================= -->
+      <!-- esta seção aparece quando o usuário clica em um processo específico da fila -->
+      <!-- começa escondida (display: none) e é exibida pelo JavaScript -->
+      <section class="document-section" id="view-documento" style="display: none;">
+
+        <!-- botão para voltar à fila -->
+        <div class="back-bar">
+          <button class="btn-voltar" id="btn-voltar">
+            <i class="fas fa-arrow-left"></i> Voltar para a fila
+          </button>
+          <span class="back-process-num" id="back-process-num"></span>
+        </div>
+
+        <div class="document-paper">
+          <h2 class="doc-title" id="doc-title">
+            EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO...
+          </h2>
+
+          <div class="doc-meta" id="doc-meta">
+            <p><strong>REQUERENTE:</strong> João da Silva</p>
+            <p><strong>REQUERIDO:</strong> Banco do Brasil S.A.</p>
+            <p><strong>ASSUNTO:</strong> Ação Revisional de Juros</p>
+          </div>
+
+          <div class="doc-content">
+            <p id="doc-content-text">
+              O autor celebrou contrato de financiamento...
+            </p>
+            <p class="placeholder-text">
+              [Simulação do conteúdo da petição inicial...]
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ================= PAINEL DE IA (DIREITA) ================= -->
+    <aside class="ai-panel">
+
+      <!-- ===== PAINEL DA FILA: aparece quando nenhum processo está aberto ===== -->
+      <div id="ai-panel-fila">
+
+        <!-- Card: visão geral da fila -->
+        <div class="ai-card">
+          <div class="card-header">
+            <i class="fas fa-robot"></i>
+            <h3>Visão Geral da IA</h3>
+          </div>
+          <p>Análise automática dos <strong>7 processos</strong> em fila:</p>
+          <div class="progress-bar">
+            <!-- barra representa triagem diária: 78% concluída -->
+            <div class="progress-fill" style="width: 78%; background: #28a745;"></div>
+          </div>
+          <p style="font-size: 12px; color: #666; margin-top: 6px;">78% da triagem diária concluída</p>
+        </div>
+
+        <!-- Card: alertas -->
+        <div class="ai-card">
+          <div class="card-header">
+            <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>
+            <h3>Alertas</h3>
+          </div>
+          <p><strong>2 processos urgentes</strong> precisam de atenção prioritária hoje.</p>
+        </div>
+
+        <!-- Card: repetitivos detectados -->
+        <div class="ai-card">
+          <div class="card-header">
+            <i class="fas fa-copy"></i>
+            <h3>Repetitivos Detectados</h3>
+          </div>
+          <p>3 processos com padrão similar de revisão de juros bancários.</p>
+          <a href="#" class="card-link">Verificar Litispendência</a>
+        </div>
+
+        <!-- Card: assuntos na fila -->
+        <div class="ai-card">
+          <div class="card-header">
+            <i class="fas fa-tags"></i>
+            <h3>Assuntos em Fila</h3>
+          </div>
+          <!-- lista simples de temas com contagem -->
+          <ul class="assunto-list">
+            <li><span>Direito Bancário</span><strong>3</strong></li>
+            <li><span>Consumidor</span><strong>2</strong></li>
+            <li><span>Financiamento</span><strong>1</strong></li>
+            <li><span>Crédito</span><strong>1</strong></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- ===== PAINEL DO DOCUMENTO: aparece quando um processo está aberto ===== -->
+      <!-- começa escondido e é exibido pelo JavaScript ao abrir um processo -->
+      <div id="ai-panel-documento" style="display: none;">
+
+        <!-- Card 1: Classificação -->
+        <div class="ai-card">
+          <div class="card-header">
+            <i class="fas fa-robot"></i>
+            <h3>Classificação Automática</h3>
+          </div>
+          <p>A IA identificou o assunto com <strong>98% de precisão</strong>:</p>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="tag-group" id="doc-tags">
+            <span class="tag">Direito Bancário</span>
+            <span class="tag">Revisional de Juros</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Repetitivos -->
+        <div class="ai-card">
+          <div class="card-header">
+            <i class="fas fa-copy"></i>
+            <h3>Filtro de Repetitivos</h3>
+          </div>
+          <p id="doc-repetitivos">Foram encontrados <strong>12 processos idênticos</strong></p>
+          <a href="#" class="card-link">Verificar Litispendência</a>
+        </div>
+
+        <!-- Card 3: Sugestões de Despacho -->
+        <div class="ai-card">
+          <div class="card-header">
+            <i class="fas fa-pen-nib"></i>
+            <h3>Sugestão de Despacho</h3>
+          </div>
+          <p>Selecione uma minuta:</p>
+          <div class="button-group">
+            <button class="btn btn-blue">Citação + Audiência</button>
+            <button class="btn btn-grey">Emendar Inicial</button>
+            <button class="btn btn-red">Indeferir Justiça Gratuita</button>
+          </div>
+        </div>
+
+      </div>
+
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-    
-
-    

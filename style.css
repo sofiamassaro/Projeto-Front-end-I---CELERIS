@@ -1,229 +1,492 @@
 /* ================= VARIÁVEIS DE CORES ================= */
-:root { /* define que as variáveis vão valer para o site inteiro */
-    /* criação de variáveis para salvar cores, facilitando reutilizar ao longo do código */
-    --celeris-blue: #004080; /* #xxxxxx é um código hexadecimal que representa uma cor */
+:root {
+    --celeris-blue: #004080;
     --sidebar-bg: #003366;
     --bg-light: #f8fafc;
     --text-main: #333;
+    --text-muted: #64748b;
     --border-color: #e2e8f0;
     --white: #ffffff;
 }
 
-/* reset básico (remove espaçamentos padrão do navegador) */
+/* reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* corpo da página */
+
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* define a fonte do site (tenta na ordem: Segoe → Roboto → Helvetica → Arial → padrão) */
-    background-color: var(--bg-light); /* define a cor de fundo usando a variável --bg-light */
-    color: var(--text-main); /* define a cor padrão dos textos usando variável */
-    overflow: hidden; /* impede scroll geral */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    overflow: hidden;
 }
-/* container principal com FLEX */
-.container { 
-    display: flex; /* display: flex sozinho - lado a lado */
-    height: 100vh; /* ocupa a tela toda */
+
+/* container principal com flex */
+.container {
+    display: flex;
+    height: 100vh;
 }
+
 /* ================= SIDEBAR ================= */
 .sidebar {
-    width: 280px; /* define largura fixa → ela sempre terá 280px */
-    background-color: var(--sidebar-bg); /* cor de fundo (usa a variável que você criou) */
-    color: var(--white); /* cor padrão dos textos dentro da sidebar */
-    
-    display: flex; /* ativa flexbox dentro da sidebar */
-    flex-direction: column; /* flex-direction: column - muda pra empilhar */
-    padding: 25px 0; /* espaçamento interno: 25px em cima e embaixo 0 nas laterais */
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0;
+    flex-shrink: 0; /* impede que a sidebar encolha */
 }
-/* logo */
-.logo-container { 
-    padding: 0 25px; /* espaço nas laterais (esquerda e direita) */
-    margin-bottom: 40px; /* espaço abaixo do logo (separa do menu) */
+
+.logo-container {
+    padding: 0 25px;
+    margin-bottom: 40px;
 }
+
 .logo-text {
-    font-size: 26px; /* tamanho grande da fonte */
-    font-weight: bold; /* deixa o texto em negrito */
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
+
 .logo-sub {
-    font-size: 12px; /* texto pequeno (subtítulo) */
-    opacity: 0.7; /* deixa meio “apagado” (transparente) */
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 2px;
 }
-/* menu */
+
+/* menu de navegação */
+.nav-menu {
+    flex: 1; /* ocupa o espaço disponível, empurrando o footer para baixo */
+}
+
 .nav-item {
-    display: flex; /* coloca os elementos internos (ícone + texto) lado a lado */
-    align-items: center; /* alinha verticalmente no meio */
-    padding: 15px 25px; /* espaço interno (cima/baixo = 15px | lados = 25px) */
-    color: rgba(255, 255, 255, 0.8); /* branco com transparência (texto mais suave) */
-    text-decoration: none; /* remove sublinhado (caso seja link <a>) */
-    transition: 0.2s; /* animação suave para mudanças (ex: hover) */
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: 0.2s;
+    gap: 12px; /* espaço entre ícone, texto e badge */
 }
-/* ícone */
+
+/* o texto do nav-item cresce para empurrar o badge para a direita */
+.nav-item span:first-of-type {
+    flex: 1;
+}
+
 .nav-item i {
-    margin-right: 15px; /* espaço entre o ícone e o texto */
+    width: 18px; /* largura fixa para alinhar os ícones */
+    text-align: center;
 }
-/* hover (serve para quando o usuario passa o mouse ter algum tipo de efeito) e item ativo */ 
+
 .nav-item:hover,
 .nav-item.active {
-    background-color: rgba(255, 255, 255, 0.1); /* aparece um fundo leve ao passar o mouse */
-    color: var(--white); /* texto fica branco forte */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
 }
-/* rodapé da sidebar */
+
+/* badge de contagem na sidebar (ex: "7" ao lado de Triagem Pendente) */
+.nav-badge {
+    background-color: #ef4444; /* vermelho para chamar atenção */
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px; /* formato de pílula */
+    min-width: 20px;
+    text-align: center;
+}
+
 .sidebar-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* linha fina em cima (separação visual) */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto; /* empurra o footer para o fim da sidebar */
 }
 
 /* ================= CONTEÚDO CENTRAL ================= */
 .main-content {
-    flex-grow: 1; /* ocupa todo o espaço restante ao lado da sidebar */
-    display: flex; /* ativa o flexbox */
-    flex-direction: column; /* organiza os elementos em coluna (um embaixo do outro) */
-    background: white; /* fundo branco */
-    border-right: 1px solid var(--border-color); /* linha à direita separando do painel */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-right: 1px solid var(--border-color);
+    min-width: 0; /* evita overflow horizontal em flex */
 }
 
-/* cabeçalho */
 .top-header {
-    height: 65px; /* altura fixa do cabeçalho */
-    display: flex; /* ativa flex */
-    justify-content: space-between; /* joga um elemento para esquerda e outro para direita */
-    align-items: center; /* alinha verticalmente no meio */
-    padding: 0 30px; /* espaço nas laterais */
-    border-bottom: 1px solid var(--border-color); /* linha embaixo */
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0; /* cabeçalho não encolhe */
 }
 
-/* perfil */
 .user-profile {
-    display: flex; /* organiza os elementos lado a lado */
-    align-items: center; /* alinha verticalmente */
-    gap: 15px; /* espaço entre os elementos */
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* avatar */
 .avatar {
-    width: 35px; 
-    height: 35px; /* tamanho do círculo */
-    background: #ddd; /* cor de fundo (cinza claro) */
-    border-radius: 50%; /* transforma em círculo */
-
-    display: flex; 
-    align-items: center; 
-    justify-content: center; /* centraliza o conteúdo dentro do círculo */
+    width: 35px;
+    height: 35px;
+    background: #dbeafe; /* azul claro */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--celeris-blue);
 }
 
-/* ================= DOCUMENTO ================= */
+/* área de scroll (fila ou documento) */
 .document-section {
-    flex-grow: 1; /* ocupa o espaço disponível */
-    overflow-y: auto; /* cria scroll vertical só nessa área */
-    padding: 40px; /* espaçamento interno */
-    display: flex; 
-    justify-content: center; /* centraliza o conteúdo horizontalmente */
+    flex-grow: 1;
+    overflow-y: auto; /* scroll apenas nessa área */
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
 }
-/* papel */
-.document-paper {
-    background: white; /* fundo branco */
-    max-width: 850px; /* largura máxima (não deixa esticar demais) */
-    padding: 60px; /* espaço interno */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* sombra leve (parece uma folha) */
-}
-/* título */
-.doc-title {
-    text-align: center; /* centraliza o texto */
-    margin-bottom: 40px; /* espaço abaixo */
-}
-/* metadados */
-.doc-meta {
-    margin-bottom: 30px; /* espaço abaixo */
-}
-/* texto */
-.doc-content {
-    line-height: 1.6; /* aumenta o espaço entre linhas (melhora leitura) */
-}
-/* texto fictício */
-.placeholder-text {
-    margin-top: 50px; /* espaço acima */
-    color: #999; /* cinza claro */
-    font-style: italic; /* texto em itálico */
-}
-/* ================= PAINEL DE IA ================= */
-.ai-panel {
-    width: 350px; /* largura fixa */
-    padding: 25px; /* espaço interno */
-    background: var(--bg-light); /* cor de fundo */
-    overflow-y: auto; /* scroll vertical */
-}
-/* card */
-.ai-card {
-    background: white; 
-    padding: 20px; 
-    margin-bottom: 25px; 
 
-    border-radius: 12px; /* cantos arredondados */
-    border: 1px solid var(--border-color); /* borda leve */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* sombra suave */
+/* ================= FILA DE TRIAGEM ================= */
+.fila-container {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto; /* centraliza */
 }
-/* cabeçalho do card */
+
+/* cabeçalho da fila */
+.fila-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.fila-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.fila-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* chip com número de processos */
+.fila-count {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 4px 14px;
+    white-space: nowrap;
+}
+
+/* ================= CARD DE PROCESSO (na fila) ================= */
+.process-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    cursor: pointer; /* mãozinha indica que é clicável */
+    transition: 0.2s;
+}
+
+/* ao passar o mouse, o card ganha destaque */
+.process-card:hover {
+    border-color: var(--celeris-blue);
+    box-shadow: 0 2px 10px rgba(0, 64, 128, 0.1);
+    transform: translateY(-1px); /* sobe levemente */
+}
+
+/* linha de cima: número do processo + status */
+.process-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.process-num {
+    font-family: 'Courier New', monospace; /* fonte monoespaçada para número de processo */
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* nome das partes */
+.process-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 3px;
+}
+
+/* assunto do processo */
+.process-card-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+/* rodapé do card: tag + metadados */
+.process-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* etiqueta de área jurídica */
+.process-tag {
+    background: #eff6ff;
+    color: var(--celeris-blue);
+    border: 1px solid #bfdbfe;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* info de data e repetitivos */
+.process-meta-info {
+    font-size: 11px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ================= BADGES DE STATUS ================= */
+/* cada badge tem cor diferente conforme a urgência */
+.status-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* vermelho: ação imediata necessária */
+.status-badge.urgente {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+/* amarelo: atenção, mas não urgente */
+.status-badge.prioritario {
+    background: #fffbeb;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+}
+
+/* azul: fluxo normal */
+.status-badge.normal {
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+/* ================= BARRA DE VOLTAR ================= */
+/* aparece no topo do documento aberto */
+.back-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* botão "Voltar para a fila" */
+.btn-voltar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-voltar:hover {
+    background: var(--bg-light);
+    border-color: var(--celeris-blue);
+    color: var(--celeris-blue);
+}
+
+/* número do processo aberto exibido na barra */
+.back-process-num {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* ================= DOCUMENTO (papel) ================= */
+.document-paper {
+    background: white;
+    max-width: 820px;
+    padding: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: opacity 0.2s; /* animação de fade ao trocar processo */
+}
+
+.doc-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 15px;
+}
+
+.doc-meta {
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.doc-content {
+    line-height: 1.7;
+}
+
+.placeholder-text {
+    margin-top: 50px;
+    color: #999;
+    font-style: italic;
+}
+
+/* ================= PAINEL DE IA (DIREITA) ================= */
+.ai-panel {
+    width: 320px;
+    padding: 25px;
+    background: var(--bg-light);
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.ai-card {
+    background: white;
+    padding: 18px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
 .card-header {
-    display: flex; 
-    align-items: center; 
-    gap: 10px; /* espaço entre ícone e texto */
-    color: var(--celeris-blue); /* cor do texto */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--celeris-blue);
+    margin-bottom: 12px;
 }
+
+.card-header h3 {
+    font-size: 14px;
+}
+
 /* barra de progresso */
 .progress-bar {
-    height: 8px; 
-    background: #eee; /* fundo da barra */
-    border-radius: 4px; 
-    margin: 15px 0; /* espaço acima e abaixo */
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    margin: 12px 0;
 }
-/* parte preenchida */
-.progress-fill {
-    width: 98%; /* quanto está preenchido */
-    height: 100%; 
-    background: #28a745; /* cor verde indicando progresso */
-}
-/* tags */
-.tag-group {
-    display: flex; 
-    gap: 8px; /* espaço entre as tags */
-}
-.tag {
-    border: 1px solid var(--celeris-blue); /* borda azul */
-    padding: 4px 12px; 
-    border-radius: 20px; /* formato arredondado (tipo cápsula) */
 
-    font-size: 12px; /* texto pequeno */
+.progress-fill {
+    width: 98%;
+    height: 100%;
+    background: #28a745;
+    border-radius: 4px;
 }
-/* link */
+
+/* tags de área jurídica no painel de IA */
+.tag-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    border: 1px solid var(--celeris-blue);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--celeris-blue);
+}
+
 .card-link {
-    color: #007bff; /* azul padrão de link */
-    text-decoration: none; /* remove sublinhado */
+    color: #007bff;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 8px;
 }
-/* botões */
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+/* botões de despacho */
 .button-group {
-    display: flex; 
-    flex-direction: column; /* empilha os botões */
-    gap: 10px; /* espaço entre eles */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
 }
-/* estilo base */
+
 .btn {
-    padding: 12px; 
-    border: none; 
-    border-radius: 8px; 
-    
-    cursor: pointer; /* cursor vira mãozinha */
-    font-weight: 600; /* texto mais forte */
-    transition: 0.2s; /* animação suave */
+    padding: 11px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: 0.2s;
 }
-/* cores dos botões */
+
 .btn-blue { background: var(--sidebar-bg); color: white; }
 .btn-grey { background: #64748b; color: white; }
-.btn-red { background: #ef4444; color: white; }
-/* cada classe define uma cor diferente */
+.btn-red  { background: #ef4444; color: white; }
 
-/* hover */
 .btn:hover {
-    opacity: 0.9; /* leve transparência */
-    transform: translateY(-1px); /* sobe levemente (efeito de clique) */
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* lista de assuntos no painel da fila */
+.assunto-list {
+    list-style: none;
+    margin-top: 8px;
+}
+
+.assunto-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 13px;
+}
+
+.assunto-list li:last-child {
+    border-bottom: none;
+}
+
+.assunto-list li span {
+    color: var(--text-muted);
+}
+
+.assunto-list li strong {
+    color: var(--celeris-blue);
 }
