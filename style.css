@@ -524,3 +524,81 @@ body {
 .assunto-list li strong {
     color: var(--celeris-blue);
 }
+
+.assunto-list li strong {
+    color: var(--celeris-blue);
+}
+
+/* ================= SWITCH PERSONALIZADO ================= */
+/* container principal do switch */
+.switch {
+    position: relative;
+    display: inline-block;
+
+    /* tamanho do switch */
+    width: 48px;
+    height: 24px;
+
+    /* espaçamento superior */
+    margin-top: 14px;
+}
+
+/* esconde o checkbox padrão do HTML */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* fundo visual do switch */
+.slider {
+    position: absolute;
+    cursor: pointer;
+
+    /* ocupa todo o espaço */
+    inset: 0;
+
+    /* cor desligado */
+    background-color: #cbd5e1;
+
+    /* animação suave */
+    transition: .3s;
+
+    /* bordas arredondadas */
+    border-radius: 24px;
+}
+
+/* bolinha interna */
+.slider:before {
+    position: absolute;
+    content: "";
+
+    /* tamanho da bolinha */
+    height: 18px;
+    width: 18px;
+
+    /* posição inicial */
+    left: 3px;
+    bottom: 3px;
+
+    /* cor */
+    background-color: white;
+
+    /* animação */
+    transition: .3s;
+
+    /* formato circular */
+    border-radius: 50%;
+}
+
+/* quando ativado */
+.switch input:checked + .slider {
+
+    /* cor azul do sistema */
+    background-color: #004080;
+}
+
+/* move a bolinha para direita quando ativo */
+.switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
