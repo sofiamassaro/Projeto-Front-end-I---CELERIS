@@ -221,70 +221,73 @@
         </div>
       </section>
 
-      <!-- ================= DEMANDAS REPETITIVAS ================= -->
-<!-- seção responsável por exibir processos com alta similaridade -->
-<!-- aqui a IA agrupa automaticamente ações parecidas -->
+```html
+<!-- ================= TELA GENÉRICA ================= -->
+<!-- esta tela será reutilizada para:
+1. Demandas Repetitivas
+2. Processos Analisados
+3. Relatórios
+4. Configurações
+-->
+
 <section class="document-section" id="view-generica" style="display: none;">
 
-  <!-- container central da tela -->
+  <!-- container principal -->
   <div class="fila-container">
 
-    <!-- cabeçalho da seção -->
+    <!-- cabeçalho dinâmico -->
     <div class="fila-header">
 
-      <!-- bloco esquerdo: título e subtítulo -->
       <div>
-        <h2 class="fila-title">Demandas Repetitivas Detectadas</h2>
+        <!-- título alterado via JavaScript -->
+        <h2 class="fila-title" id="generica-title">
+          Demandas Repetitivas
+        </h2>
 
-        <!-- descrição da funcionalidade -->
-        <p class="fila-subtitle">
+        <!-- subtítulo alterado via JavaScript -->
+        <p class="fila-subtitle" id="generica-sub">
           Processos com alta similaridade identificados automaticamente pela IA
         </p>
       </div>
 
-      <!-- contador total de agrupamentos -->
-      <span class="fila-count">
+      <!-- contador -->
+      <span class="fila-count" id="generica-count">
         28 correspondências encontradas
       </span>
     </div>
 
-    <!-- lista de agrupamentos repetitivos -->
-    <div class="process-list">
+    <!-- conteúdo dinâmico -->
+    <!-- o JS irá trocar esse conteúdo conforme o menu clicado -->
+    <div class="process-list" id="generica-content">
 
-      <!-- ================= GRUPO REPETITIVO 1 ================= -->
+      <!-- ================= CARD 1 ================= -->
       <div class="process-card">
 
-        <!-- topo do card -->
         <div class="process-card-top">
 
-          <!-- identificador interno do grupo -->
-          <span class="process-num">Grupo RP-014</span>
+          <span class="process-num">
+            Grupo RP-014
+          </span>
 
-          <!-- status indicando incidência alta -->
           <span class="status-badge urgente">
             Alta incidência
           </span>
         </div>
 
-        <!-- assunto principal detectado -->
         <div class="process-card-title">
           Revisional de Juros — Banco do Brasil S.A.
         </div>
 
-        <!-- resumo da similaridade -->
         <div class="process-card-sub">
-          12 processos semelhantes encontrados com pedidos idênticos de revisão contratual.
+          12 processos semelhantes encontrados com pedidos idênticos.
         </div>
 
-        <!-- rodapé do card -->
         <div class="process-card-meta">
 
-          <!-- tag jurídica -->
           <span class="process-tag">
             Litispendência
           </span>
 
-          <!-- percentual de similaridade -->
           <span class="process-meta-info">
             <i class="fas fa-copy"></i>
             Similaridade: 96%
@@ -292,40 +295,34 @@
         </div>
       </div>
 
-      <!-- ================= GRUPO REPETITIVO 2 ================= -->
+      <!-- ================= CARD 2 ================= -->
       <div class="process-card">
 
-        <!-- topo do card -->
         <div class="process-card-top">
 
-          <!-- número do agrupamento -->
-          <span class="process-num">Grupo RP-021</span>
+          <span class="process-num">
+            Grupo RP-021
+          </span>
 
-          <!-- status monitorado -->
           <span class="status-badge prioritario">
             Monitorado
           </span>
         </div>
 
-        <!-- título do agrupamento -->
         <div class="process-card-title">
           Negativação Indevida — Santander Brasil S.A.
         </div>
 
-        <!-- descrição do padrão identificado -->
         <div class="process-card-sub">
-          Padrão recorrente identificado em ações distribuídas nas últimas 72 horas.
+          Padrão recorrente identificado nas últimas 72 horas.
         </div>
 
-        <!-- informações complementares -->
         <div class="process-card-meta">
 
-          <!-- categoria jurídica -->
           <span class="process-tag">
             Consumidor
           </span>
 
-          <!-- percentual de semelhança -->
           <span class="process-meta-info">
             <i class="fas fa-copy"></i>
             Similaridade: 88%
@@ -336,227 +333,6 @@
     </div>
   </div>
 </section>
-
-<!-- ================= PROCESSOS ANALISADOS ================= -->
-<!-- tela que mostra processos já triados pela IA -->
-<div class="fila-header">
-
-  <!-- título da seção -->
-  <div>
-    <h2 class="fila-title">Processos Analisados</h2>
-
-    <!-- descrição -->
-    <p class="fila-subtitle">
-      Histórico recente de triagens concluídas
-    </p>
-  </div>
-
-  <!-- quantidade total analisada -->
-  <span class="fila-count">
-    143 processos concluídos
-  </span>
-</div>
-
-<!-- ================= CARD DE PROCESSO ANALISADO ================= -->
-<div class="process-card">
-
-  <!-- topo do card -->
-  <div class="process-card-top">
-
-    <!-- número do processo -->
-    <span class="process-num">
-      5002911-88.2024.8.24.0023
-    </span>
-
-    <!-- status -->
-    <span class="status-badge normal">
-      Concluído
-    </span>
-  </div>
-
-  <!-- partes do processo -->
-  <div class="process-card-title">
-    Fernanda Costa vs. Itaú Unibanco S.A.
-  </div>
-
-  <!-- classificação feita pela IA -->
-  <div class="process-card-sub">
-    Processo classificado automaticamente como Revisão Contratual Bancária.
-  </div>
-
-  <!-- informações adicionais -->
-  <div class="process-card-meta">
-
-    <!-- tag -->
-    <span class="process-tag">
-      Triagem Finalizada
-    </span>
-
-    <!-- tempo gasto -->
-    <span class="process-meta-info">
-      <i class="fas fa-clock"></i>
-      Tempo de análise: 1min 42s
-    </span>
-  </div>
-</div>
-
-<!-- ================= RELATÓRIOS DE CELERIDADE ================= -->
-<!-- painel de métricas e desempenho da IA -->
-<div class="fila-header">
-
-  <!-- título -->
-  <div>
-    <h2 class="fila-title">Relatórios de Celeridade</h2>
-
-    <!-- subtítulo -->
-    <p class="fila-subtitle">
-      Indicadores de desempenho da triagem automatizada
-    </p>
-  </div>
-</div>
-
-<!-- ================= MÉTRICA: TEMPO MÉDIO ================= -->
-<div class="ai-card">
-
-  <!-- cabeçalho do card -->
-  <div class="card-header">
-    <i class="fas fa-gauge-high"></i>
-    <h3>Tempo Médio de Triagem</h3>
-  </div>
-
-  <!-- valor principal -->
-  <p style="font-size: 28px; font-weight: bold; margin-top: 10px;">
-    2min 14s
-  </p>
-
-  <!-- explicação -->
-  <p style="margin-top: 10px;">
-    Redução de 63% no tempo médio de análise inicial.
-  </p>
-</div>
-
-<!-- ================= MÉTRICA: PRECISÃO ================= -->
-<div class="ai-card">
-
-  <!-- cabeçalho -->
-  <div class="card-header">
-    <i class="fas fa-scale-balanced"></i>
-    <h3>Precisão da Classificação</h3>
-  </div>
-
-  <!-- barra visual -->
-  <div class="progress-bar">
-    <div class="progress-fill" style="width: 98%"></div>
-  </div>
-
-  <!-- resultado -->
-  <p>
-    Precisão média da IA nos últimos 30 dias:
-    <strong>98%</strong>
-  </p>
-</div>
-
-<!-- ================= MÉTRICA: REPETITIVOS ================= -->
-<div class="ai-card">
-
-  <!-- cabeçalho -->
-  <div class="card-header">
-    <i class="fas fa-layer-group"></i>
-    <h3>Demandas Repetitivas Detectadas</h3>
-  </div>
-
-  <!-- quantidade -->
-  <p style="font-size: 26px; font-weight: bold;">
-    417
-  </p>
-
-  <!-- descrição -->
-  <p>
-    Processos agrupados automaticamente por similaridade textual.
-  </p>
-</div>
-
-<!-- ================= CONFIGURAÇÕES ================= -->
-<!-- painel de preferências e automações -->
-<div class="fila-header">
-
-  <!-- título -->
-  <div>
-    <h2 class="fila-title">Configurações do Sistema</h2>
-
-    <!-- descrição -->
-    <p class="fila-subtitle">
-      Preferências da triagem automatizada e integração judicial
-    </p>
-  </div>
-</div>
-
-<!-- ================= CONFIG: CLASSIFICAÇÃO ================= -->
-<div class="ai-card">
-
-  <!-- cabeçalho -->
-  <div class="card-header">
-    <i class="fas fa-robot"></i>
-    <h3>Classificação Automática</h3>
-  </div>
-
-  <!-- descrição -->
-  <p>
-    Ativar identificação automática de assunto jurídico.
-  </p>
-
-  <!-- switch -->
-  <label class="switch">
-
-    <!-- checkbox invisível -->
-    <input type="checkbox" checked>
-
-    <!-- slider visual -->
-    <span class="slider"></span>
-  </label>
-</div>
-
-<!-- ================= CONFIG: REPETITIVOS ================= -->
-<div class="ai-card">
-
-  <!-- cabeçalho -->
-  <div class="card-header">
-    <i class="fas fa-copy"></i>
-    <h3>Filtro de Repetitivos</h3>
-  </div>
-
-  <!-- descrição -->
-  <p>
-    Detectar litispendência e ações em massa.
-  </p>
-
-  <!-- switch -->
-  <label class="switch">
-    <input type="checkbox" checked>
-    <span class="slider"></span>
-  </label>
-</div>
-
-<!-- ================= CONFIG: ALERTAS ================= -->
-<div class="ai-card">
-
-  <!-- cabeçalho -->
-  <div class="card-header">
-    <i class="fas fa-bell"></i>
-    <h3>Alertas Prioritários</h3>
-  </div>
-
-  <!-- explicação -->
-  <p>
-    Notificar processos urgentes automaticamente.
-  </p>
-
-  <!-- switch -->
-  <label class="switch">
-    <input type="checkbox">
-    <span class="slider"></span>
-  </label>
-</div>
 
     </main>
 

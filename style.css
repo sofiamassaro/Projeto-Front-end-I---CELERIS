@@ -160,6 +160,13 @@ body {
     margin: 0 auto; /* centraliza */
 }
 
+/* ================= VIEW GENERICA ================= */
+.generica-container {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto; /* centraliza */
+}
+
 /* cabeçalho da fila */
 .fila-header {
     display: flex;
