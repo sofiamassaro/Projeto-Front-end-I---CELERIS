@@ -529,76 +529,54 @@ body {
     color: var(--celeris-blue);
 }
 
-/* ================= SWITCH PERSONALIZADO ================= */
-/* container principal do switch */
+/* ================= SWITCH CONFIGURAÇÕES ================= */
+/* versão isolada para não quebrar o layout do sistema */
+
 .switch {
     position: relative;
-    display: inline-block;
-
-    /* tamanho do switch */
-    width: 48px;
-    height: 24px;
-
-    /* espaçamento superior */
-    margin-top: 14px;
+    display: inline-flex;
+    width: 44px;
+    height: 22px;
+    margin-top: 12px;
 }
 
-/* esconde o checkbox padrão do HTML */
+/* esconde checkbox padrão */
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+    display: none;
 }
 
-/* fundo visual do switch */
-.slider {
+/* fundo do switch */
+.switch .slider {
     position: absolute;
-    cursor: pointer;
-
-    /* ocupa todo o espaço */
     inset: 0;
-
-    /* cor desligado */
-    background-color: #cbd5e1;
-
-    /* animação suave */
-    transition: .3s;
-
-    /* bordas arredondadas */
-    border-radius: 24px;
+    background: #cbd5e1;
+    border-radius: 30px;
+    transition: 0.3s;
 }
 
-/* bolinha interna */
-.slider:before {
-    position: absolute;
+/* bolinha */
+.switch .slider::before {
     content: "";
+    position: absolute;
 
-    /* tamanho da bolinha */
-    height: 18px;
     width: 18px;
+    height: 18px;
 
-    /* posição inicial */
-    left: 3px;
-    bottom: 3px;
+    left: 2px;
+    top: 2px;
 
-    /* cor */
-    background-color: white;
-
-    /* animação */
-    transition: .3s;
-
-    /* formato circular */
+    background: white;
     border-radius: 50%;
+
+    transition: 0.3s;
 }
 
-/* quando ativado */
+/* estado ativo */
 .switch input:checked + .slider {
-
-    /* cor azul do sistema */
-    background-color: #004080;
+    background: var(--celeris-blue);
 }
 
-/* move a bolinha para direita quando ativo */
-.switch input:checked + .slider:before {
-    transform: translateX(24px);
+/* move bolinha */
+.switch input:checked + .slider::before {
+    transform: translateX(22px);
 }
