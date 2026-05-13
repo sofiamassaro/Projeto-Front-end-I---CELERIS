@@ -160,13 +160,6 @@ body {
     margin: 0 auto; /* centraliza */
 }
 
-/* ================= VIEW GENERICA ================= */
-.generica-container {
-    width: 100%;
-    max-width: 820px;
-    margin: 0 auto; /* centraliza */
-}
-
 /* cabeçalho da fila */
 .fila-header {
     display: flex;
@@ -530,60 +523,4 @@ body {
 
 .assunto-list li strong {
     color: var(--celeris-blue);
-}
-
-.assunto-list li strong {
-    color: var(--celeris-blue);
-}
-
-/* ================= SWITCH CONFIGURAÇÕES ================= */
-/* versão isolada para não quebrar o layout do sistema */
-
-.switch {
-    position: relative;
-    display: inline-flex;
-    width: 44px;
-    height: 22px;
-    margin-top: 12px;
-}
-
-/* esconde checkbox padrão */
-.switch input {
-    display: none;
-}
-
-/* fundo do switch */
-.switch .slider {
-    position: absolute;
-    inset: 0;
-    background: #cbd5e1;
-    border-radius: 30px;
-    transition: 0.3s;
-}
-
-/* bolinha */
-.switch .slider::before {
-    content: "";
-    position: absolute;
-
-    width: 18px;
-    height: 18px;
-
-    left: 2px;
-    top: 2px;
-
-    background: white;
-    border-radius: 50%;
-
-    transition: 0.3s;
-}
-
-/* estado ativo */
-.switch input:checked + .slider {
-    background: var(--celeris-blue);
-}
-
-/* move bolinha */
-.switch input:checked + .slider::before {
-    transform: translateX(22px);
 }
