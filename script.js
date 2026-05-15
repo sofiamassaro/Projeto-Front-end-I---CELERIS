@@ -1,37 +1,24 @@
 // ================= CELERIS - SCRIPT PRINCIPAL =================
 
 import { processos } from "./js/data/processos.js"; // importa os dados dos processos de um arquivo separado para manter o código organizado
+import {
+    viewFila,
+    viewDocumento,
+    viewGenerica,
+    aiPanelFila,
+    aiPanelDoc,
+    docTitle,
+    docMeta,
+    docContentText,
+    docTags,
+    docRepetitivos,
+    backProcessNum,
+    btnVoltar,
+    processCards,
+    navItems
+} from "./js/utils/dom.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    // ================= SELEÇÃO DE ELEMENTOS =================
-    // guarda referências para os elementos que vamos manipular
-
-    // as duas "telas" da área central
-    const viewFila       = document.getElementById("view-fila");
-    const viewDocumento  = document.getElementById("view-documento");
-    const viewGenerica   = document.getElementById("view-generica");
-
-    // os dois estados do painel de IA
-    const aiPanelFila    = document.getElementById("ai-panel-fila");
-    const aiPanelDoc     = document.getElementById("ai-panel-documento");
-
-    // campos do documento aberto
-    const docTitle       = document.getElementById("doc-title");
-    const docMeta        = document.getElementById("doc-meta");
-    const docContentText = document.getElementById("doc-content-text");
-    const docTags        = document.getElementById("doc-tags");
-    const docRepetitivos = document.getElementById("doc-repetitivos");
-    const backProcessNum = document.getElementById("back-process-num");
-
-    // botão de voltar
-    const btnVoltar      = document.getElementById("btn-voltar");
-
-    // cards de processo na fila
-    const processCards   = document.querySelectorAll(".process-card");
-
-    // items do menu lateral
-    const navItems       = document.querySelectorAll(".nav-item");
 
     // ================= FUNÇÃO: ABRIR PROCESSO =================
     // recebe o índice do processo no array e exibe o documento
