@@ -3,7 +3,6 @@ import { processos } from "../data/processos.js";
 import {
     viewFila,
     viewDocumento,
-    viewGenerica,
     aiPanelFila,
     aiPanelDoc,
     docTitle,
@@ -11,7 +10,9 @@ import {
     docContentText,
     docTags,
     docRepetitivos,
-    backProcessNum
+    backProcessNum,
+    esconderTodasViews,
+    sairModoCadastro
 } from "../utils/dom.js";
 
 export function abrirProcesso(index) {
@@ -42,19 +43,15 @@ export function abrirProcesso(index) {
 
     docRepetitivos.innerHTML = textoRep;
 
-    viewFila.style.display = "none";
+    esconderTodasViews();
+    sairModoCadastro();
     viewDocumento.style.display = "flex";
-
-    aiPanelFila.style.display = "none";
     aiPanelDoc.style.display = "block";
 }
 
 export function voltarParaFila() {
-
+    esconderTodasViews();
+    sairModoCadastro();
     viewFila.style.display = "flex";
-    viewDocumento.style.display = "none";
-    viewGenerica.style.display  = "none"; 
-
     aiPanelFila.style.display = "block";
-    aiPanelDoc.style.display = "none";
 }

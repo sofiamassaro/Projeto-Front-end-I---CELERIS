@@ -1,9 +1,7 @@
 import {
-    viewFila,
-    viewDocumento,
     viewGenerica,
-    aiPanelFila,
-    aiPanelDoc
+    esconderTodasViews,
+    sairModoCadastro
 } from "../utils/dom.js";
 
 export function mostrarSecaoGenerica(secao) {
@@ -38,10 +36,7 @@ export function mostrarSecaoGenerica(secao) {
     document.getElementById("generica-icon").innerHTML =
         `<i class="${dados.icone}"></i>`;
 
-    viewFila.style.display = "none";
-    viewDocumento.style.display = "none";
+    esconderTodasViews();
+    sairModoCadastro();
     viewGenerica.style.display = "flex";
-
-    aiPanelFila.style.display = "none";
-    aiPanelDoc.style.display = "none";
 }

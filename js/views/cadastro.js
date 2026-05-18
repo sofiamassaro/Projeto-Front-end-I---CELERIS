@@ -1,18 +1,13 @@
 // importa as referências dos elementos HTML que já existem no dom.js
 // assim não precisamos usar document.getElementById aqui para esses elementos
 import {
-    viewFila,        // section da fila de triagem
-    viewDocumento,   // section do documento aberto
-    viewGenerica,    // section das telas genéricas (em desenvolvimento)
-    aiPanelFila,     // painel de IA da fila (lado direito)
-    aiPanelDoc,      // painel de IA do documento aberto
-    navItems         // todos os itens do menu lateral
+    viewCadastro,
+    viewConfirmacao,
+    esconderTodasViews,
+    navItems
 } from "../utils/dom.js";
 
-// esses elementos são específicos do cadastro, então pegamos aqui mesmo
-// eles não estão no dom.js porque só existem quando o cadastro é usado
-const viewCadastro     = document.getElementById("view-cadastro");      // section do formulário
-const viewConfirmacao  = document.getElementById("view-confirmacao");   // section da tela de confirmação
+import { voltarParaFila } from "./documento.js";
 
 // ================= CAMPOS DO FORMULÁRIO =================
 // cada variável aponta para um campo de input do HTML
@@ -39,20 +34,6 @@ const confPrioridade   = document.getElementById("conf-prioridade");   // exibe 
 const confBadge        = document.getElementById("conf-badge");        // o badge colorido de prioridade
 const confObs          = document.getElementById("conf-obs");          // exibe as observações
 const confObsWrapper   = document.getElementById("conf-obs-wrapper");  // bloco que envolve as obs (some se vazio)
-
-// ================= HELPER: ESCONDER TUDO =================
-// função utilitária que esconde todas as sections e painéis de IA de uma vez
-// usada sempre que precisamos trocar de tela — garante que nenhuma tela fique
-// visível por acidente em cima da outra
-function esconderTudo() {
-    document.getElementById("view-fila").style.display         = "none";
-    document.getElementById("view-documento").style.display    = "none";
-    document.getElementById("view-generica").style.display     = "none";
-    document.getElementById("view-cadastro").style.display     = "none";
-    document.getElementById("view-confirmacao").style.display  = "none";
-    aiPanelFila.style.display = "none";
-    aiPanelDoc.style.display = "none";
-}
 
 // ================= HELPER: FORMATAR DATA =================
 // o input type="date" retorna a data no formato americano: "2025-05-09"
@@ -89,8 +70,8 @@ function mostrarToast(msg) {
 // função exportada — o app.js vai chamar ela quando o usuário clicar em "Cadastrar Petição"
 // o export torna ela acessível fora desse arquivo
 export function mostrarCadastro() {
-    esconderTudo();                          // limpa todas as telas
-    viewCadastro.style.display = "flex";    // exibe o formulário
+    esconderTodasViews();
+    viewCadastro.style.display = "flex";
     formError.style.display    = "none";    // garante que o erro anterior não apareça
     document.body.classList.add("modo-cadastro");
 }
@@ -144,8 +125,7 @@ function revisarCadastro() {
         confObsWrapper.style.display = "none"; // esconde se estiver vazio
     }
 
-    // troca de tela: esconde tudo e exibe a confirmação
-    esconderTudo();
+    esconderTodasViews();
     viewConfirmacao.style.display = "flex";
 }
 
@@ -164,15 +144,9 @@ function confirmarCadastro() {
     campoPrioridade.value = "normal"; // volta para o valor padrão
     campoObs.value        = "";
 
-   navItems.forEach(link => link.classList.remove("active"));
+    navItems.forEach(link => link.classList.remove("active"));
     document.querySelector('[data-section="triagem"]').classList.add("active");
-
-    document.getElementById("view-fila").style.display          = "flex";
-    document.getElementById("view-confirmacao").style.display   = "none";
-    document.getElementById("ai-panel-fila").style.display      = "block";
-    document.querySelector(".ai-panel").style.display           = "block";
-    document.body.classList.remove("modo-cadastro");
-
+    voltarParaFila();
     mostrarToast("Processo cadastrado e incluído na fila com sucesso!");
 }
 
@@ -191,19 +165,14 @@ document.getElementById("btn-confirmar-cadastro")
 // os campos ainda têm os valores porque não limpamos, apenas trocamos de tela
 document.getElementById("btn-editar-cadastro")
     .addEventListener("click", () => {
-        esconderTudo();
-        viewCadastro.style.display = "flex"; // volta para o form com os dados intactos
+        esconderTodasViews();
+        viewCadastro.style.display = "flex";
+        document.body.classList.add("modo-cadastro");
     });
 
-// botão "Cancelar" no formulário → descarta e volta para a triagem
 document.getElementById("btn-cancelar-cadastro")
     .addEventListener("click", () => {
         navItems.forEach(link => link.classList.remove("active"));
         document.querySelector('[data-section="triagem"]').classList.add("active");
-
-        document.getElementById("view-fila").style.display      = "flex";
-        document.getElementById("view-cadastro").style.display  = "none";
-        document.getElementById("ai-panel-fila").style.display  = "block";
-        document.querySelector(".ai-panel").style.display       = "block";
-        document.body.classList.remove("modo-cadastro");
+        voltarParaFila();
     });

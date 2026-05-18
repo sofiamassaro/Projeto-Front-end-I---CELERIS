@@ -4,6 +4,22 @@
 export const viewFila = document.getElementById("view-fila");
 export const viewDocumento = document.getElementById("view-documento");
 export const viewGenerica = document.getElementById("view-generica");
+export const viewCadastro = document.getElementById("view-cadastro");
+export const viewConfirmacao = document.getElementById("view-confirmacao");
+
+export function esconderTodasViews() {
+    viewFila.style.display = "none";
+    viewDocumento.style.display = "none";
+    viewGenerica.style.display = "none";
+    viewCadastro.style.display = "none";
+    viewConfirmacao.style.display = "none";
+    aiPanelFila.style.display = "none";
+    aiPanelDoc.style.display = "none";
+}
+
+export function sairModoCadastro() {
+    document.body.classList.remove("modo-cadastro");
+}
 
 export const aiPanelFila = document.getElementById("ai-panel-fila");
 export const aiPanelDoc = document.getElementById("ai-panel-documento");
