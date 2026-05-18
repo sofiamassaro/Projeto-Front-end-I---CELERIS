@@ -735,20 +735,3 @@ body {
     transform: translateY(0);
     opacity: 1;
 }
-
-/* ================= CADASTRO E CONFIRMAÇÃO ================= */
-#view-cadastro,
-#view-confirmacao {
-    width: 100%;
-    flex-direction: column;
-}
-
-/* esconde o painel de IA quando o cadastro ou confirmação estão ativos */
-#view-cadastro[style*="flex"] ~ * .ai-panel,
-#view-confirmacao[style*="flex"] ~ * .ai-panel {
-    display: none !important;
-}
-
-.modo-cadastro .ai-panel {
-    display: none !important;
-}

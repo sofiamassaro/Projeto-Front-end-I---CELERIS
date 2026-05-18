@@ -50,10 +50,8 @@ function esconderTudo() {
     document.getElementById("view-generica").style.display     = "none";
     document.getElementById("view-cadastro").style.display     = "none";
     document.getElementById("view-confirmacao").style.display  = "none";
-    document.getElementById("ai-panel-fila").style.display     = "none";
-    document.getElementById("ai-panel-documento").style.display = "none";
-    document.querySelector(".ai-panel").style.display           = "none";
-    document.querySelector(".ai-panel").style.display           = "none";
+    aiPanelFila.style.display = "none";
+    aiPanelDoc.style.display = "none";
 }
 
 // ================= HELPER: FORMATAR DATA =================

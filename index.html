@@ -50,149 +50,6 @@
       </div>
     </aside>
 
-    <!-- ================= CADASTRO DE PETIÇÃO ================= -->
-<section class="document-section" id="view-cadastro" style="display: none;">
-  <div class="fila-container">
-    <div class="fila-header">
-      <div>
-        <h2 class="fila-title">Cadastrar Petição</h2>
-        <p class="fila-subtitle">Preencha os dados básicos do processo para incluir na fila</p>
-      </div>
-    </div>
-
-    <div class="cadastro-form">
-
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Número do Processo <span class="form-required">*</span></label>
-          <input type="text" class="form-input" id="cad-numero"
-            placeholder="0000000-00.0000.8.24.0000" maxlength="25">
-        </div>
-        <div class="form-group form-group--sm">
-          <label class="form-label">Data de Entrada <span class="form-required">*</span></label>
-          <input type="date" class="form-input" id="cad-data">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Requerente (Autor) <span class="form-required">*</span></label>
-          <input type="text" class="form-input" id="cad-requerente" placeholder="Nome completo">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Requerido (Réu) <span class="form-required">*</span></label>
-          <input type="text" class="form-input" id="cad-requerido" placeholder="Nome da instituição ou pessoa">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Classe Processual <span class="form-required">*</span></label>
-          <select class="form-input form-select" id="cad-classe">
-            <option value="" disabled selected>Selecione a classe...</option>
-            <option value="Ação Revisional de Juros">Ação Revisional de Juros</option>
-            <option value="Indenização por Dano Moral">Indenização por Dano Moral</option>
-            <option value="Cobrança Indevida de Tarifas">Cobrança Indevida de Tarifas</option>
-            <option value="Negativação Indevida">Negativação Indevida no SPC/Serasa</option>
-            <option value="Revisão de Contrato de Financiamento">Revisão de Contrato de Financiamento</option>
-            <option value="Revisão de Empréstimo Consignado">Revisão de Empréstimo Consignado</option>
-            <option value="Revisão de Limite de Crédito">Revisão de Limite de Crédito</option>
-            <option value="Execução de Título Extrajudicial">Execução de Título Extrajudicial</option>
-            <option value="Ação Monitória">Ação Monitória</option>
-            <option value="Outro">Outro</option>
-          </select>
-        </div>
-        <div class="form-group form-group--sm">
-          <label class="form-label">Prioridade</label>
-          <select class="form-input form-select" id="cad-prioridade">
-            <option value="normal">Normal</option>
-            <option value="prioritario">Prioritário</option>
-            <option value="urgente">Urgente</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Observações</label>
-        <textarea class="form-input form-textarea" id="cad-obs"
-          placeholder="Informações adicionais sobre o processo (opcional)..." rows="3"></textarea>
-      </div>
-
-      <div class="form-error" id="form-error" style="display:none;">
-        <i class="fas fa-exclamation-circle"></i>
-        <span id="form-error-msg">Preencha todos os campos obrigatórios.</span>
-      </div>
-
-      <div class="form-actions">
-        <button class="btn-voltar" id="btn-cancelar-cadastro">
-          <i class="fas fa-times"></i> Cancelar
-        </button>
-        <button class="btn btn-blue btn-cadastrar" id="btn-revisar-cadastro">
-          <i class="fas fa-eye"></i> Revisar Cadastro
-        </button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONFIRMAÇÃO DO CADASTRO ================= -->
-<section class="document-section" id="view-confirmacao" style="display: none;">
-  <div class="fila-container">
-    <div class="fila-header">
-      <div>
-        <h2 class="fila-title">Confirmar Cadastro</h2>
-        <p class="fila-subtitle">Revise os dados antes de incluir o processo na fila</p>
-      </div>
-    </div>
-
-    <div class="confirmacao-card">
-      <div class="confirmacao-header">
-        <i class="fas fa-file-alt"></i>
-        <div>
-          <p class="confirmacao-num" id="conf-numero"></p>
-          <p class="confirmacao-data">Entrada: <span id="conf-data"></span></p>
-        </div>
-        <span class="status-badge" id="conf-badge"></span>
-      </div>
-
-      <div class="confirmacao-grid">
-        <div class="confirmacao-item">
-          <span class="confirmacao-label">Requerente</span>
-          <span class="confirmacao-valor" id="conf-requerente"></span>
-        </div>
-        <div class="confirmacao-item">
-          <span class="confirmacao-label">Requerido</span>
-          <span class="confirmacao-valor" id="conf-requerido"></span>
-        </div>
-        <div class="confirmacao-item">
-          <span class="confirmacao-label">Classe Processual</span>
-          <span class="confirmacao-valor" id="conf-classe"></span>
-        </div>
-        <div class="confirmacao-item">
-          <span class="confirmacao-label">Prioridade</span>
-          <span class="confirmacao-valor" id="conf-prioridade"></span>
-        </div>
-      </div>
-
-      <div class="confirmacao-obs" id="conf-obs-wrapper">
-        <span class="confirmacao-label">Observações</span>
-        <p class="confirmacao-obs-texto" id="conf-obs"></p>
-      </div>
-
-      <div class="form-actions" style="margin-top: 28px;">
-        <button class="btn-voltar" id="btn-editar-cadastro">
-          <i class="fas fa-arrow-left"></i> Editar
-        </button>
-        <button class="btn btn-blue btn-cadastrar" id="btn-confirmar-cadastro">
-          <i class="fas fa-plus-circle"></i> Confirmar e Incluir na Fila
-        </button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
     <!-- ================= ÁREA PRINCIPAL ================= -->
     <main class="main-content">
 
@@ -383,7 +240,149 @@
         </div>
       </section>
 
-    </main>
+        <!-- ================= CADASTRO DE PETIÇÃO ================= -->
+  <section class="document-section" id="view-cadastro" style="display: none;">
+    <div class="fila-container">
+      <div class="fila-header">
+        <div>
+          <h2 class="fila-title">Cadastrar Petição</h2>
+          <p class="fila-subtitle">Preencha os dados básicos do processo para incluir na fila</p>
+        </div>
+      </div>
+
+      <div class="cadastro-form">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Número do Processo <span class="form-required">*</span></label>
+            <input type="text" class="form-input" id="cad-numero"
+              placeholder="0000000-00.0000.8.24.0000" maxlength="25">
+          </div>
+          <div class="form-group form-group--sm">
+            <label class="form-label">Data de Entrada <span class="form-required">*</span></label>
+            <input type="date" class="form-input" id="cad-data">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Requerente (Autor) <span class="form-required">*</span></label>
+            <input type="text" class="form-input" id="cad-requerente" placeholder="Nome completo">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Requerido (Réu) <span class="form-required">*</span></label>
+            <input type="text" class="form-input" id="cad-requerido" placeholder="Nome da instituição ou pessoa">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Classe Processual <span class="form-required">*</span></label>
+            <select class="form-input form-select" id="cad-classe">
+              <option value="" disabled selected>Selecione a classe...</option>
+              <option value="Ação Revisional de Juros">Ação Revisional de Juros</option>
+              <option value="Indenização por Dano Moral">Indenização por Dano Moral</option>
+              <option value="Cobrança Indevida de Tarifas">Cobrança Indevida de Tarifas</option>
+              <option value="Negativação Indevida">Negativação Indevida no SPC/Serasa</option>
+              <option value="Revisão de Contrato de Financiamento">Revisão de Contrato de Financiamento</option>
+              <option value="Revisão de Empréstimo Consignado">Revisão de Empréstimo Consignado</option>
+              <option value="Revisão de Limite de Crédito">Revisão de Limite de Crédito</option>
+              <option value="Execução de Título Extrajudicial">Execução de Título Extrajudicial</option>
+              <option value="Ação Monitória">Ação Monitória</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group form-group--sm">
+            <label class="form-label">Prioridade</label>
+            <select class="form-input form-select" id="cad-prioridade">
+              <option value="normal">Normal</option>
+              <option value="prioritario">Prioritário</option>
+              <option value="urgente">Urgente</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Observações</label>
+          <textarea class="form-input form-textarea" id="cad-obs"
+            placeholder="Informações adicionais sobre o processo (opcional)..." rows="3"></textarea>
+        </div>
+
+        <div class="form-error" id="form-error" style="display:none;">
+          <i class="fas fa-exclamation-circle"></i>
+          <span id="form-error-msg">Preencha todos os campos obrigatórios.</span>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn-voltar" id="btn-cancelar-cadastro">
+            <i class="fas fa-times"></i> Cancelar
+          </button>
+          <button class="btn btn-blue btn-cadastrar" id="btn-revisar-cadastro">
+            <i class="fas fa-eye"></i> Revisar Cadastro
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONFIRMAÇÃO DO CADASTRO ================= -->
+  <section class="document-section" id="view-confirmacao" style="display: none;">
+    <div class="fila-container">
+      <div class="fila-header">
+        <div>
+          <h2 class="fila-title">Confirmar Cadastro</h2>
+          <p class="fila-subtitle">Revise os dados antes de incluir o processo na fila</p>
+        </div>
+      </div>
+
+      <div class="confirmacao-card">
+        <div class="confirmacao-header">
+          <i class="fas fa-file-alt"></i>
+          <div>
+            <p class="confirmacao-num" id="conf-numero"></p>
+            <p class="confirmacao-data">Entrada: <span id="conf-data"></span></p>
+          </div>
+          <span class="status-badge" id="conf-badge"></span>
+        </div>
+
+        <div class="confirmacao-grid">
+          <div class="confirmacao-item">
+            <span class="confirmacao-label">Requerente</span>
+            <span class="confirmacao-valor" id="conf-requerente"></span>
+          </div>
+          <div class="confirmacao-item">
+            <span class="confirmacao-label">Requerido</span>
+            <span class="confirmacao-valor" id="conf-requerido"></span>
+          </div>
+          <div class="confirmacao-item">
+            <span class="confirmacao-label">Classe Processual</span>
+            <span class="confirmacao-valor" id="conf-classe"></span>
+          </div>
+          <div class="confirmacao-item">
+            <span class="confirmacao-label">Prioridade</span>
+            <span class="confirmacao-valor" id="conf-prioridade"></span>
+          </div>
+        </div>
+
+        <div class="confirmacao-obs" id="conf-obs-wrapper">
+          <span class="confirmacao-label">Observações</span>
+          <p class="confirmacao-obs-texto" id="conf-obs"></p>
+        </div>
+
+        <div class="form-actions" style="margin-top: 28px;">
+          <button class="btn-voltar" id="btn-editar-cadastro">
+            <i class="fas fa-arrow-left"></i> Editar
+          </button>
+          <button class="btn btn-blue btn-cadastrar" id="btn-confirmar-cadastro">
+            <i class="fas fa-plus-circle"></i> Confirmar e Incluir na Fila
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
 
     <!-- ================= PAINEL DE IA (DIREITA) ================= -->
     <aside class="ai-panel">
