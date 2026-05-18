@@ -30,7 +30,7 @@ export function mostrarSecaoGenerica(secao) {
         }
     };
 
-    const dados = secoes[secao];
+    const dados = secoes[secao] || { titulo: "Seção", icone: "fas fa-folder" };
 
     document.getElementById("generica-title").textContent =
         dados.titulo;

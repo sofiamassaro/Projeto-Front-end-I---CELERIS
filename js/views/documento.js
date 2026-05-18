@@ -3,6 +3,7 @@ import { processos } from "../data/processos.js";
 import {
     viewFila,
     viewDocumento,
+    viewGenerica,
     aiPanelFila,
     aiPanelDoc,
     docTitle,
@@ -52,6 +53,7 @@ export function voltarParaFila() {
 
     viewFila.style.display = "flex";
     viewDocumento.style.display = "none";
+    viewGenerica.style.display  = "none"; 
 
     aiPanelFila.style.display = "block";
     aiPanelDoc.style.display = "none";
