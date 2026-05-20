@@ -735,3 +735,39 @@ body {
     transform: translateY(0);
     opacity: 1;
 }
+
+/* ================= PREVIEW DE TAGS NO FORMULÁRIO ================= */
+/* exibe as tags geradas automaticamente pela seleção de classe */
+.form-tags-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-light);
+    min-height: 42px;
+    align-items: center;
+}
+
+/* texto de placeholder antes de uma classe ser selecionada */
+.form-tags-placeholder {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* cada tag gerada automaticamente — mesmo visual que as tags do painel de IA */
+.form-tags-preview .tag {
+    border: 1px solid var(--celeris-blue);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--celeris-blue);
+    background: white;
+}
+
+/* textarea maior para o corpo da petição */
+.form-textarea--lg {
+    min-height: 120px;
+}

@@ -5,6 +5,7 @@
 export const processos = [
         {
             numero: "5003421-12.2024.8.24.0023",
+            dataentrada: "2024-06-15",  
             requerente: "João da Silva",
             requerido: "Banco do Brasil S.A.",
             assunto: "Ação Revisional de Juros — Financiamento de Veículo",
@@ -15,6 +16,7 @@ export const processos = [
         },
         {
             numero: "5003987-44.2024.8.24.0023",
+            dataentrada: "2024-10-15",
             requerente: "Maria Oliveira",
             requerido: "Caixa Econômica Federal",
             assunto: "Revisão de Contrato de Financiamento Imobiliário",
@@ -25,6 +27,7 @@ export const processos = [
         },
         {
             numero: "5004102-88.2024.8.24.0023",
+            dataentrada: "2024-06-15",
             requerente: "Pedro Alves",
             requerido: "Itaú Unibanco S.A.",
             assunto: "Indenização por Dano Moral — Cobrança Indevida",
@@ -35,6 +38,7 @@ export const processos = [
         },
         {
             numero: "5004388-21.2024.8.24.0023",
+            dataentrada: "2024-06-15",
             requerente: "Ana Souza",
             requerido: "Bradesco S.A.",
             assunto: "Cobrança Indevida de Tarifas Bancárias",
@@ -45,6 +49,7 @@ export const processos = [
         },
         {
             numero: "5004512-67.2024.8.24.0023",
+            dataentrada: "2024-06-15",
             requerente: "Carlos Mendes",
             requerido: "Santander Brasil S.A.",
             assunto: "Negativação Indevida no SPC/Serasa",
@@ -55,6 +60,7 @@ export const processos = [
         },
         {
             numero: "5004701-33.2024.8.24.0023",
+            dataentrada: "2024-06-15",
             requerente: "Luciana Ferreira",
             requerido: "Nubank S.A.",
             assunto: "Revisão de Limite e Contestação de Cobranças",
@@ -65,6 +71,7 @@ export const processos = [
         },
         {
             numero: "5004899-14.2024.8.24.0023",
+            dataentrada: "2024-06-15",
             requerente: "Roberto Lima",
             requerido: "Banco Inter S.A.",
             assunto: "Revisão de Contrato de Empréstimo Consignado",
