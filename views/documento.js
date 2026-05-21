@@ -1,39 +1,36 @@
 import { processos } from "../data/processos.js";
 
 import {
-    viewFila,
-    viewDocumento,
-    aiPanelFila,
-    aiPanelDoc,
-    docTitle,
-    docMeta,
-    docContentText,
-    docTags,
-    docRepetitivos,
-    backProcessNum,
+    getViewFila,
+    getViewDocumento,
+    getAiPanelFila,
+    getAiPanelDoc,
+    getDocTitle,
+    getDocMeta,
+    getDocContentText,
+    getDocTags,
+    getDocRepetitivos,
+    getBackProcessNum,
     esconderTodasViews,
     sairModoCadastro
 } from "../utils/dom.js";
 
 export function abrirProcesso(index) {
-
     const p = processos[index];
 
-    docTitle.textContent =
-        `EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA VARA BANCÁRIA`;
+    getDocTitle().textContent = `EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA VARA BANCÁRIA`;
 
-    docMeta.innerHTML = `
+    getDocMeta().innerHTML = `
         <p><strong>REQUERENTE:</strong> ${p.requerente}</p>
         <p><strong>REQUERIDO:</strong> ${p.requerido}</p>
         <p><strong>ASSUNTO:</strong> ${p.assunto}</p>
         <p><strong>NÚMERO:</strong> ${p.numero}</p>
     `;
 
-    docContentText.textContent = p.conteudo;
+    getDocContentText().textContent = p.conteudo;
+    getBackProcessNum().textContent = p.numero;
 
-    backProcessNum.textContent = p.numero;
-
-    docTags.innerHTML = p.tags
+    getDocTags().innerHTML = p.tags
         .map(tag => `<span class="tag">${tag}</span>`)
         .join("");
 
@@ -41,17 +38,17 @@ export function abrirProcesso(index) {
         ? "Nenhum processo repetitivo encontrado."
         : `Foram encontrados <strong>${p.repetitivos} processos idênticos</strong>`;
 
-    docRepetitivos.innerHTML = textoRep;
+    getDocRepetitivos().innerHTML = textoRep;
 
     esconderTodasViews();
     sairModoCadastro();
-    viewDocumento.style.display = "flex";
-    aiPanelDoc.style.display = "block";
+    getViewDocumento().style.display = "flex";
+    getAiPanelDoc().style.display    = "block";
 }
 
 export function voltarParaFila() {
     esconderTodasViews();
     sairModoCadastro();
-    viewFila.style.display = "flex";
-    aiPanelFila.style.display = "block";
+    getViewFila().style.display     = "flex";
+    getAiPanelFila().style.display  = "block";
 }
