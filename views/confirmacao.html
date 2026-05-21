@@ -1,0 +1,64 @@
+<section class="document-section" id="view-confirmacao" style="display: none;">
+  <div class="fila-container">
+    <div class="fila-header">
+      <div>
+        <h2 class="fila-title">Confirmar Cadastro</h2>
+        <p class="fila-subtitle">Revise os dados antes de incluir o processo na fila</p>
+      </div>
+    </div>
+
+    <div class="confirmacao-card">
+      <div class="confirmacao-header">
+        <i class="fas fa-file-alt"></i>
+        <div>
+          <p class="confirmacao-num" id="conf-numero"></p>
+          <p class="confirmacao-data">Entrada: <span id="conf-data"></span></p>
+        </div>
+        <span class="status-badge" id="conf-badge"></span>
+      </div>
+
+      <div class="confirmacao-grid">
+        <div class="confirmacao-item">
+          <span class="confirmacao-label">Requerente</span>
+          <span class="confirmacao-valor" id="conf-requerente"></span>
+        </div>
+        <div class="confirmacao-item">
+          <span class="confirmacao-label">Requerido</span>
+          <span class="confirmacao-valor" id="conf-requerido"></span>
+        </div>
+        <div class="confirmacao-item">
+          <span class="confirmacao-label">Classe Processual</span>
+          <span class="confirmacao-valor" id="conf-classe"></span>
+        </div>
+        <div class="confirmacao-item">
+          <span class="confirmacao-label">Prioridade</span>
+          <span class="confirmacao-valor" id="conf-prioridade"></span>
+        </div>
+      </div>
+
+      <div class="confirmacao-item" style="margin-bottom: 20px;">
+        <span class="confirmacao-label">Tags</span>
+        <div class="tag-group" id="conf-tags"></div>
+      </div>
+
+      <div class="confirmacao-obs" id="conf-conteudo-wrapper">
+        <span class="confirmacao-label">Conteúdo da Petição</span>
+        <p class="confirmacao-obs-texto" id="conf-conteudo"></p>
+      </div>
+
+      <div class="confirmacao-obs" id="conf-obs-wrapper">
+        <span class="confirmacao-label">Observações Internas</span>
+        <p class="confirmacao-obs-texto" id="conf-obs"></p>
+      </div>
+
+      <div class="form-actions" style="margin-top: 28px;">
+        <button class="btn-voltar" id="btn-editar-cadastro">
+          <i class="fas fa-arrow-left"></i> Editar
+        </button>
+        <button class="btn btn-blue btn-cadastrar" id="btn-confirmar-cadastro">
+          <i class="fas fa-plus-circle"></i> Confirmar e Incluir na Fila
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

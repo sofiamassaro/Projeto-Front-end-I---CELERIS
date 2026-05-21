@@ -1,0 +1,88 @@
+<aside class="ai-panel">
+
+  <!-- Painel da fila -->
+  <div id="ai-panel-fila">
+    <div class="ai-card">
+      <div class="card-header">
+        <i class="fas fa-robot"></i>
+        <h3>Visão Geral da IA</h3>
+      </div>
+      <p>Análise automática dos <strong>7 processos</strong> em fila:</p>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 78%; background: #28a745;"></div>
+      </div>
+      <p style="font-size: 12px; color: #666; margin-top: 6px;">78% da triagem diária concluída</p>
+    </div>
+
+    <div class="ai-card">
+      <div class="card-header">
+        <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>
+        <h3>Alertas</h3>
+      </div>
+      <p><strong>2 processos urgentes</strong> precisam de atenção prioritária hoje.</p>
+    </div>
+
+    <div class="ai-card">
+      <div class="card-header">
+        <i class="fas fa-copy"></i>
+        <h3>Repetitivos Detectados</h3>
+      </div>
+      <p>3 processos com padrão similar de revisão de juros bancários.</p>
+      <a href="#" class="card-link">Verificar Litispendência</a>
+    </div>
+
+    <div class="ai-card">
+      <div class="card-header">
+        <i class="fas fa-tags"></i>
+        <h3>Assuntos em Fila</h3>
+      </div>
+      <ul class="assunto-list">
+        <li><span>Direito Bancário</span><strong>3</strong></li>
+        <li><span>Consumidor</span><strong>2</strong></li>
+        <li><span>Financiamento</span><strong>1</strong></li>
+        <li><span>Crédito</span><strong>1</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Painel do documento -->
+  <div id="ai-panel-documento" style="display: none;">
+    <div class="ai-card">
+      <div class="card-header">
+        <i class="fas fa-robot"></i>
+        <h3>Classificação Automática</h3>
+      </div>
+      <p>A IA identificou o assunto com <strong>98% de precisão</strong>:</p>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="tag-group" id="doc-tags">
+        <span class="tag">Direito Bancário</span>
+        <span class="tag">Revisional de Juros</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="card-header">
+        <i class="fas fa-copy"></i>
+        <h3>Filtro de Repetitivos</h3>
+      </div>
+      <p id="doc-repetitivos">Foram encontrados <strong>12 processos idênticos</strong></p>
+      <a href="#" class="card-link">Verificar Litispendência</a>
+    </div>
+
+    <div class="ai-card">
+      <div class="card-header">
+        <i class="fas fa-pen-nib"></i>
+        <h3>Sugestão de Despacho</h3>
+      </div>
+      <p>Selecione uma minuta:</p>
+      <div class="button-group">
+        <button class="btn btn-blue">Citação + Audiência</button>
+        <button class="btn btn-grey">Emendar Inicial</button>
+        <button class="btn btn-red">Indeferir Justiça Gratuita</button>
+      </div>
+    </div>
+  </div>
+
+</aside>
