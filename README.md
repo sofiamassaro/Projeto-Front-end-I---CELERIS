@@ -1,6 +1,6 @@
 # CELERIS
 
-Link para acessar o Projeto: **https://sofiamassaro.github.io/Projeto-Front-CELERIS/**
+Link para acessar o Projeto: **https://sofiamassaro.github.io/CELERIS/**
 
 ## Redefinindo o Tempo da Justiça através da Triagem Automatizada
 
