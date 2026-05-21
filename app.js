@@ -1,13 +1,13 @@
-import { carregarFragmentos } from "../utils/loadViews.js";
-import { abrirProcesso, voltarParaFila } from "../views/documento.js";
-import { mostrarSecaoGenerica } from "../views/generica.js";
+import { carregarFragmentos } from "./utils/loadViews.js";
+import { abrirProcesso, voltarParaFila } from "./views/documento.js";
+import { mostrarSecaoGenerica } from "./views/generica.js";
 
 async function init() {
 
   await carregarFragmentos();
 
   // importa cadastro.js SÓ AQUI, após o DOM estar pronto
-  const { mostrarCadastro, registrarEventos } = await import("../views/cadastro.js");
+  const { mostrarCadastro, registrarEventos } = await import("./views/cadastro.js");
   registrarEventos();
 
   // cards da fila
