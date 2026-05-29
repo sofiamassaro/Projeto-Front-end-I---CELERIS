@@ -6,9 +6,16 @@ async function init() {
 
   await carregarFragmentos();
 
+  // importa upload.js SÓ AQUI, após o DOM estar pronto
+  const { mostrarUpload, registrarEventosUpload } = await import("./views/upload.js");
+  registrarEventosUpload();
+
   // importa cadastro.js SÓ AQUI, após o DOM estar pronto
   const { mostrarCadastro, registrarEventos } = await import("./views/cadastro.js");
   registrarEventos();
+
+  // tela inicial: Upload de PDF (Etapa 1)
+  mostrarUpload();
 
   // cards da fila
   document.querySelectorAll(".process-card").forEach(function(card) {
@@ -30,9 +37,10 @@ async function init() {
       item.classList.add("active");
       const secao = item.getAttribute("data-section");
 
-      if (secao === "triagem")        voltarParaFila();
+      if (secao === "upload")        mostrarUpload();
+      else if (secao === "triagem")  voltarParaFila();
       else if (secao === "cadastrar") mostrarCadastro();
-      else                            mostrarSecaoGenerica(secao);
+      else                           mostrarSecaoGenerica(secao);
     });
   });
 

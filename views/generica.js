@@ -1,7 +1,8 @@
 import {
     getViewGenerica,
     esconderTodasViews,
-    sairModoCadastro
+    sairModoCadastro,
+    setWorkflowStep
 } from "../utils/dom.js";
 
 export function mostrarSecaoGenerica(secao) {
@@ -20,4 +21,5 @@ export function mostrarSecaoGenerica(secao) {
     esconderTodasViews();
     sairModoCadastro();
     getViewGenerica().style.display = "flex";
+    setWorkflowStep(null);
 }

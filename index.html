@@ -26,7 +26,36 @@
         </div>
       </header>
 
+      <!-- Barra de progresso do fluxo -->
+      <div class="workflow-bar">
+        <div class="workflow-step" data-step="upload">
+          <div class="workflow-step-num">1</div>
+          <span>Upload PDF</span>
+        </div>
+        <div class="workflow-divider"></div>
+        <div class="workflow-step" data-step="cadastrar">
+          <div class="workflow-step-num">2</div>
+          <span>Cadastro</span>
+        </div>
+        <div class="workflow-divider"></div>
+        <div class="workflow-step" data-step="triagem">
+          <div class="workflow-step-num">3</div>
+          <span>Triagem</span>
+        </div>
+        <div class="workflow-divider"></div>
+        <div class="workflow-step" data-step="analise">
+          <div class="workflow-step-num">4</div>
+          <span>Análise</span>
+        </div>
+        <div class="workflow-divider"></div>
+        <div class="workflow-step" data-step="concluido">
+          <div class="workflow-step-num">5</div>
+          <span>Concluído</span>
+        </div>
+      </div>
+
       <!-- Views injetadas dinamicamente -->
+      <div id="slot-upload"></div>
       <div id="slot-fila"></div>
       <div id="slot-documento"></div>
       <div id="slot-generica"></div>

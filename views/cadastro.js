@@ -2,7 +2,8 @@ import {
     getViewCadastro,
     getViewConfirmacao,
     esconderTodasViews,
-    navItems
+    navItems,
+    setWorkflowStep
 } from "../utils/dom.js";
 
 import { voltarParaFila } from "./documento.js";
@@ -89,9 +90,10 @@ function mostrarToast(msg) {
 export function mostrarCadastro() {
     const formError = document.getElementById("form-error");
     esconderTodasViews();
-    getViewCadastro().style.display = "flex";   // era viewCadastro
+    getViewCadastro().style.display = "flex";
     formError.style.display         = "none";
     document.body.classList.add("modo-cadastro");
+    setWorkflowStep("cadastrar");
 }
 
 export function registrarEventos() {
@@ -99,7 +101,9 @@ export function registrarEventos() {
     const campoNumero      = document.getElementById("cad-numero");
     const campoData        = document.getElementById("cad-data");
     const campoRequerente  = document.getElementById("cad-requerente");
+    const campoCpf         = document.getElementById("cad-cpf");
     const campoRequerido   = document.getElementById("cad-requerido");
+    const campoCpfRequerido= document.getElementById("cad-cpf-requerido");
     const campoClasse      = document.getElementById("cad-classe");
     const campoPrioridade  = document.getElementById("cad-prioridade");
     const campoConteudo    = document.getElementById("cad-conteudo");
@@ -175,29 +179,33 @@ export function registrarEventos() {
         const tags   = TAGS_POR_CLASSE[classe] || ["Outros"];
 
         const novoProcesso = {
-            numero:      campoNumero.value.trim(),
-            dataEntrada: campoData.value,
-            requerente:  campoRequerente.value.trim(),
-            requerido:   campoRequerido.value.trim(),
-            assunto:     classe,
-            status:      campoPrioridade.value,
-            tags:        tags,
-            repetitivos: 0,
-            conteudo:    campoConteudo.value.trim()
+            numero:          campoNumero.value.trim(),
+            dataEntrada:     campoData.value,
+            requerente:      campoRequerente.value.trim(),
+            cpfRequerente:   campoCpf.value.trim(),
+            requerido:       campoRequerido.value.trim(),
+            cpfRequerido:    campoCpfRequerido.value.trim(),
+            assunto:         classe,
+            status:          campoPrioridade.value,
+            tags:            tags,
+            repetitivos:     0,
+            conteudo:        campoConteudo.value.trim()
         };
 
         processos.push(novoProcesso);
         inserirCardNaFila(novoProcesso);
         atualizarContadores();
 
-        campoNumero.value     = "";
-        campoData.value       = "";
-        campoRequerente.value = "";
-        campoRequerido.value  = "";
-        campoClasse.value     = "";
-        campoPrioridade.value = "normal";
-        campoConteudo.value   = "";
-        campoObs.value        = "";
+        campoNumero.value        = "";
+        campoData.value          = "";
+        campoRequerente.value    = "";
+        campoCpf.value           = "";
+        campoRequerido.value     = "";
+        campoCpfRequerido.value  = "";
+        campoClasse.value        = "";
+        campoPrioridade.value    = "normal";
+        campoConteudo.value      = "";
+        campoObs.value           = "";
         atualizarPreviewTags("", campoTagsPreview);
 
         navItems.forEach(link => link.classList.remove("active"));

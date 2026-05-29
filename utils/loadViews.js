@@ -7,6 +7,7 @@ const fragmentos = [
   // [ url do arquivo,          id do placeholder no index.html ]
   ["./components/sidebar.html",      "slot-sidebar"],
   ["./components/ai-panel.html",     "slot-ai-panel"],
+  ["./views/upload.html",            "slot-upload"],
   ["./views/fila.html",              "slot-fila"],
   ["./views/documento.html",         "slot-documento"],
   ["./views/generica.html",          "slot-generica"],

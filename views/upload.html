@@ -1,0 +1,46 @@
+<section class="document-section" id="view-upload" style="display: none;">
+  <div class="fila-container">
+    <div class="fila-header">
+      <div>
+        <h2 class="fila-title">Upload de PDF</h2>
+        <p class="fila-subtitle">Envie o arquivo PDF da petição para iniciar o processo</p>
+      </div>
+    </div>
+
+    <div class="upload-dropzone" id="upload-dropzone">
+      <div class="upload-icon">
+        <i class="fas fa-file-pdf"></i>
+      </div>
+      <p class="upload-title">Arraste o arquivo PDF aqui</p>
+      <p class="upload-sub">ou clique para selecionar um arquivo</p>
+      <input type="file" id="upload-input" accept=".pdf" style="display: none;">
+      <button class="btn btn-blue upload-btn" id="btn-selecionar-arquivo">
+        <i class="fas fa-folder-open"></i> Selecionar Arquivo
+      </button>
+    </div>
+
+    <div class="upload-preview" id="upload-preview" style="display: none;">
+      <div class="upload-file-info">
+        <i class="fas fa-file-pdf upload-file-icon"></i>
+        <div class="upload-file-meta">
+          <p class="upload-file-name" id="upload-file-name">documento.pdf</p>
+          <p class="upload-file-size" id="upload-file-size">0 KB</p>
+        </div>
+        <button class="btn-voltar" id="btn-remover-arquivo">
+          <i class="fas fa-times"></i> Remover
+        </button>
+      </div>
+    </div>
+
+    <div class="form-error" id="upload-error" style="display: none;">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="upload-error-msg">Selecione um arquivo PDF válido.</span>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-blue btn-cadastrar" id="btn-avancar-cadastro" disabled>
+        <i class="fas fa-arrow-right"></i> Avançar para Cadastro
+      </button>
+    </div>
+  </div>
+</section>

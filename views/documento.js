@@ -12,7 +12,8 @@ import {
     getDocRepetitivos,
     getBackProcessNum,
     esconderTodasViews,
-    sairModoCadastro
+    sairModoCadastro,
+    setWorkflowStep
 } from "../utils/dom.js";
 
 export function abrirProcesso(index) {
@@ -21,8 +22,8 @@ export function abrirProcesso(index) {
     getDocTitle().textContent = `EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA VARA BANCÁRIA`;
 
     getDocMeta().innerHTML = `
-        <p><strong>REQUERENTE:</strong> ${p.requerente}</p>
-        <p><strong>REQUERIDO:</strong> ${p.requerido}</p>
+        <p><strong>REQUERENTE:</strong> ${p.requerente}${p.cpfRequerente ? ` — CPF: ${p.cpfRequerente}` : ""}</p>
+        <p><strong>REQUERIDO:</strong> ${p.requerido}${p.cpfRequerido ? ` — CPF: ${p.cpfRequerido}` : ""}</p>
         <p><strong>ASSUNTO:</strong> ${p.assunto}</p>
         <p><strong>NÚMERO:</strong> ${p.numero}</p>
     `;
@@ -44,11 +45,13 @@ export function abrirProcesso(index) {
     sairModoCadastro();
     getViewDocumento().style.display = "flex";
     getAiPanelDoc().style.display    = "block";
+    setWorkflowStep("analise");
 }
 
 export function voltarParaFila() {
     esconderTodasViews();
     sairModoCadastro();
-    getViewFila().style.display     = "flex";
-    getAiPanelFila().style.display  = "block";
+    getViewFila().style.display    = "flex";
+    getAiPanelFila().style.display = "block";
+    setWorkflowStep("triagem");
 }
